@@ -1,0 +1,291 @@
+# Purpose: Test whether relative abundance of honeybees in a park
+# predicts park-level plant-pollinator network structure.
+
+# Libraries ####
+library(tidyverse)
+library(broom)
+
+# 1. Read in data ####
+
+
+relabund <- read.csv("../Output/ApisRelAbund.csv")
+netMets  <- read.csv("../Output/park_level_network_metrics.csv", stringsAsFactors = FALSE)
+
+# Inspect ####
+names(relabund)
+names(netMets)
+glimpse(relabund)
+glimpse(netMets)
+
+# 2. Define join column ####
+# CHANGE THESE if needed
+park_col_relabund <- "poly_id"
+park_col_netmets  <- "park_name"
+
+# 3. Clean park names a bit before join ####
+relabund <- relabund %>%
+  mutate(
+    park_join = str_trim(str_to_lower(.data[[park_col_relabund]]))
+  )
+
+netMets <- netMets %>%
+  mutate(
+    park_join = str_trim(str_to_lower(.data[[park_col_netmets]]))
+  )
+
+# 4. Check overlap between datasets ####
+parks_relabund <- relabund %>% distinct(park_join)
+parks_netmets  <- netMets %>% distinct(park_join)
+
+parks_in_both <- inner_join(parks_relabund, parks_netmets, by = "park_join")
+parks_only_relabund <- anti_join(parks_relabund, parks_netmets, by = "park_join")
+parks_only_netmets  <- anti_join(parks_netmets, parks_relabund, by = "park_join")
+
+cat("\n--- PARK OVERLAP SUMMARY ---\n")
+cat("Parks in relabund:", nrow(parks_relabund), "\n")
+cat("Parks in netMets :", nrow(parks_netmets), "\n")
+cat("Parks in both    :", nrow(parks_in_both), "\n")
+cat("Only in relabund :", nrow(parks_only_relabund), "\n")
+cat("Only in netMets  :", nrow(parks_only_netmets), "\n")
+
+if (nrow(parks_only_relabund) > 0) {
+  cat("\nParks only in relabund:\n")
+  print(parks_only_relabund)
+}
+
+if (nrow(parks_only_netmets) > 0) {
+  cat("\nParks only in netMets:\n")
+  print(parks_only_netmets)
+}
+
+# 5. Join datasets ####
+dat <- relabund %>%
+  inner_join(netMets, by = "park_join", suffix = c("_relabund", "_netmets"))
+
+cat("\nRows in joined dataset:", nrow(dat), "\n")
+
+# 6. Define honeybee relative abundance column ####
+# CHANGE THIS if needed
+# examples might be "ApisRelAbund", "prop_honeybee", or "percentageHB"
+hb_col <- "n_hb"
+
+# 7. Optional transformation of relative abundance ####
+# For proportions in [0,1], logit can help, but zeros/ones need adjustment.
+# We keep the raw version and create transformed versions for exploration.
+
+dat <- dat %>%
+  mutate(
+    hb_raw = .data[[hb_col]]
+  )
+
+dat <- dat %>%
+  mutate(hb_raw = as.numeric( hb_raw))
+
+# If your values are percentages 0-100, convert to 0-1
+if (max(dat$hb_raw, na.rm = TRUE) > 1) {
+  dat <- dat %>%
+    mutate(hb_raw = hb_raw / 100)
+}
+
+# Bound to (0,1) for logit transform
+eps <- 0.001
+
+dat <- dat %>%
+  mutate(
+    hb_bounded = pmin(pmax(hb_raw, eps), 1 - eps),
+    hb_logit = qlogis(hb_bounded),
+    hb_arcsine = asin(sqrt(hb_raw))
+  )
+
+summary(dat$hb_raw)
+summary(dat$hb_logit)
+
+# 8. Choose network metrics to model ####
+# Keep only columns that are numeric and biologically meaningful as responses.
+candidate_metrics <- c(
+  "connectance",
+  "web_asymmetry",
+  "nestedness",
+  "modularity",
+  "H2",
+  "linkage_density",
+  "interaction_evenness",
+  "n_plants",
+  "n_pollinators",
+  "n_links",
+  "interaction_sum",
+  "n_records"
+)
+
+response_vars <- candidate_metrics[candidate_metrics %in% names(dat)]
+
+cat("\nResponse variables being modeled:\n")
+print(response_vars)
+
+# 9. Run one regression per metric ####
+# Default: simple linear model metric ~ honeybee relative abundance
+# You can swap hb_raw for hb_logit if diagnostics look better.
+
+fit_one_model <- function(response, predictor = "hb_raw", data = dat) {
+  model_df <- data %>%
+    select(all_of(c(response, predictor))) %>%
+    drop_na()
+  
+  # Need enough points and variation
+  if (nrow(model_df) < 5) {
+    return(tibble(
+      response = response,
+      predictor = predictor,
+      n = nrow(model_df),
+      term = predictor,
+      estimate = NA_real_,
+      std.error = NA_real_,
+      statistic = NA_real_,
+      p.value = NA_real_,
+      r.squared = NA_real_,
+      adj.r.squared = NA_real_,
+      AIC = NA_real_
+    ))
+  }
+  
+  if (sd(model_df[[response]], na.rm = TRUE) == 0) {
+    return(tibble(
+      response = response,
+      predictor = predictor,
+      n = nrow(model_df),
+      term = predictor,
+      estimate = NA_real_,
+      std.error = NA_real_,
+      statistic = NA_real_,
+      p.value = NA_real_,
+      r.squared = NA_real_,
+      adj.r.squared = NA_real_,
+      AIC = NA_real_
+    ))
+  }
+  
+  form <- as.formula(paste(response, "~", predictor))
+  mod <- lm(form, data = model_df)
+  
+  coef_tab <- tidy(mod) %>%
+    filter(term == predictor)
+  
+  g <- glance(mod)
+  
+  tibble(
+    response = response,
+    predictor = predictor,
+    n = nrow(model_df),
+    term = predictor,
+    estimate = coef_tab$estimate,
+    std.error = coef_tab$std.error,
+    statistic = coef_tab$statistic,
+    p.value = coef_tab$p.value,
+    r.squared = g$r.squared,
+    adj.r.squared = g$adj.r.squared,
+    AIC = g$AIC
+  )
+}
+
+model_results_raw <- map_dfr(response_vars, fit_one_model, predictor = "hb_raw", data = dat)
+model_results_logit <- map_dfr(response_vars, fit_one_model, predictor = "hb_logit", data = dat)
+
+# 10. Adjust for multiple testing ####
+model_results_raw <- model_results_raw %>%
+  mutate(p_adj_fdr = p.adjust(p.value, method = "fdr")) %>%
+  arrange(p.value)
+
+model_results_logit <- model_results_logit %>%
+  mutate(p_adj_fdr = p.adjust(p.value, method = "fdr")) %>%
+  arrange(p.value)
+
+cat("\n--- RESULTS: RAW HONEYBEE ABUNDANCE ---\n")
+print(model_results_raw)
+
+cat("\n--- RESULTS: LOGIT HONEYBEE ABUNDANCE ---\n")
+print(model_results_logit)
+
+# 11. Write model results ####
+write.csv(model_results_raw,
+          "../Output/honeybee_network_metric_models_raw.csv",
+          row.names = FALSE)
+
+write.csv(model_results_logit,
+          "../Output/honeybee_network_metric_models_logit.csv",
+          row.names = FALSE)
+
+# 12. Quick plots for each response ####
+plot_dir <- "../Output/network_metric_regression_plots"
+if (!dir.exists(plot_dir)) dir.create(plot_dir, recursive = TRUE)
+
+for (resp in response_vars) {
+  pdat <- dat %>%
+    select(all_of(c(resp, "hb_raw"))) %>%
+    drop_na()
+  
+  if (nrow(pdat) < 5) next
+  
+  p <- ggplot(pdat, aes(x = hb_raw, y = .data[[resp]])) +
+    geom_point(size = 3, alpha = 0.8) +
+    geom_smooth(method = "lm", se = TRUE) +
+    labs(
+      x = "Relative abundance of Apis mellifera",
+      y = resp,
+      title = paste(resp, "vs honeybee relative abundance")
+    ) +
+    theme_bw()
+  
+  ggsave(
+    filename = file.path(plot_dir, paste0(resp, "_vs_honeybee.png")),
+    plot = p,
+    width = 6,
+    height = 4,
+    dpi = 300
+  )
+}
+
+# 13. Correlation matrix ####
+# Use numeric columns only; include honeybee abundance and network metrics.
+corr_vars <- c("hb_raw", response_vars)
+corr_vars <- corr_vars[corr_vars %in% names(dat)]
+
+corr_df <- dat %>%
+  select(all_of(corr_vars)) %>%
+  select(where(is.numeric))
+
+corr_mat <- cor(corr_df, use = "pairwise.complete.obs", method = "pearson")
+
+print(corr_mat)
+
+write.csv(
+  corr_mat,
+  "../Output/honeybee_network_metric_correlation_matrix.csv"
+)
+
+# 14. Draw correlation matrix as a heatmap ####
+corr_long <- as.data.frame(as.table(corr_mat)) %>%
+  rename(var1 = Var1, var2 = Var2, correlation = Freq)
+
+corr_plot <- ggplot(corr_long, aes(x = var1, y = var2, fill = correlation)) +
+  geom_tile() +
+  geom_text(aes(label = round(correlation, 2)), size = 3) +
+  scale_fill_gradient2(low = "steelblue", mid = "white", high = "firebrick", midpoint = 0) +
+  coord_equal() +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid = element_blank()
+  ) +
+  labs(
+    title = "Correlation matrix: honeybee abundance and network metrics",
+    x = NULL,
+    y = NULL
+  )
+
+ggsave(
+  "../Output/honeybee_network_metric_correlation_matrix.png",
+  corr_plot,
+  width = 8,
+  height = 7,
+  dpi = 300
+)

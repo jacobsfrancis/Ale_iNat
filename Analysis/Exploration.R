@@ -50,7 +50,7 @@ Apid_Summary <- bees_in_parks %>%
     percentageHB = 100 * n_hb / n_apidae
   )
 
-Apid_Summary_20 <-  Apid_Summary %>% filter(n_apidae>14)
+Apid_Summary_20 <-  Apid_Summary %>% filter(n_apidae>5)
 
 # Plot it ####
 
@@ -74,6 +74,13 @@ explore_Plot1 <- ggplot(
 
 explore_Plot1
 
+as.data.frame(Apid_Summary_20)
+
+write.csv(
+  as.data.frame(Apid_Summary_20)[,1:4],
+  "../Output/ApisRelAbund.csv",
+  row.names = FALSE
+)
 # Gutter ####
 
 library(sf)
@@ -120,8 +127,6 @@ library(dbscan)
 bees_proj <- bees_sf %>% st_transform(3857)
 coords <- st_coordinates(bees_proj)
 
-db <- dbscan(coords, eps = 500, minPts = 50)  # eps in meters here
-bees_proj$cluster <- factor(db$cluster)
 
 ggplot() +
   geom_sf(data = st_transform(parks, 3857), fill = "grey95", color = "grey75", linewidth = 0.2) +
