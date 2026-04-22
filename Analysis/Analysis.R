@@ -109,12 +109,7 @@ candidate_metrics <- c(
   "modularity",
   "H2",
   "linkage_density",
-  "interaction_evenness",
-  "n_plants",
-  "n_pollinators",
-  "n_links",
-  "interaction_sum",
-  "n_records"
+  "interaction_evenness"
 )
 
 response_vars <- candidate_metrics[candidate_metrics %in% names(dat)]
@@ -289,3 +284,4 @@ ggsave(
   height = 7,
   dpi = 300
 )
+
