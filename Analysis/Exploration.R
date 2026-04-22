@@ -16,7 +16,7 @@ library(ggplot2)
 #0.2 Read in data ####
 
 ## apid obs for broward co ####
-bees <- read.delim("../Data/Broward_apid_obs_unfiltered.csv") 
+bees <- read.delim("../Data/Broward anthophila obs unfiltered.csv") 
 
 ## shapefile for broward parks ####
 parks <- st_read("../Data/urban_parks/urban_parks.shp")
@@ -132,3 +132,4 @@ ggplot() +
   geom_sf(data = st_transform(parks, 3857), fill = "grey95", color = "grey75", linewidth = 0.2) +
   geom_sf(data = bees_proj, aes(color = cluster), size = 1, alpha = 0.7) +
   theme_minimal()
+
