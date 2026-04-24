@@ -7,7 +7,7 @@ library(tidyverse)
 library(bipartite)
 
 # 1. Read data ####
-data <- read.csv("../Data/interactions_data_4_4_2025.csv", stringsAsFactors = FALSE)
+data <- read.csv("../data_raw/interactions_data_4_4_2025.csv", stringsAsFactors = FALSE)
 data<- data %>% filter(FLW_ID_Conf!=c(NA,"<80%"))
 # Inspect names first
 names(data)
@@ -166,7 +166,7 @@ glimpse(park_metrics)
 # 8. Write output ####
 write.csv(
   park_metrics,
-  "../Output/park_level_network_metrics.csv",
+  "../outputs/park_level_network_metrics.csv",
   row.names = FALSE
 )
 
