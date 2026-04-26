@@ -107,50 +107,43 @@ print(nestedness_results)
 # Plotting function
 # ------------------------------------------------------------
 
-plot_nested_web <- function(web, title = NULL) {
+plot_nested_web <- function(web, title = NULL, label_cex = 2) {
   
   bipartite::plotweb(
     web,
     sorting = "normal",
     empty = FALSE,
     
-    # Hide individual species labels
     lower_labels = FALSE,
     higher_labels = FALSE,
     
-    # lower = rows = pollinators = bottom
     lower_color = pollinator_col,
     lower_border = "same",
     
-    # higher = columns = plants = top
     higher_color = plant_col,
     higher_border = "same",
     
-    # links
     link_color = link_col,
     link_border = "same",
     link_alpha = link_alpha,
     
-    # geometry
     spacing = 0.25,
     box_size = 0.08,
     curved_links = FALSE,
     
-    # margins for group labels
-    mar = c(3.2, 1, 3.2, 1)
+    # increased margin room for larger labels
+    mar = c(4.2, 1, 4.2, 1)
   )
   
-  # Optional panel title
   if (!is.null(title)) {
     title(main = title, line = 1.3, cex.main = 1.1)
   }
   
-  # Group labels
   mtext(
     "Plants",
     side = 3,
-    line = 0.5,
-    cex = 1.0,
+    line = 0.7,
+    cex = label_cex,
     font = 2,
     col = plant_col
   )
@@ -158,8 +151,8 @@ plot_nested_web <- function(web, title = NULL) {
   mtext(
     "Pollinators",
     side = 1,
-    line = 1.0,
-    cex = 1.0,
+    line = 1.2,
+    cex = label_cex,
     font = 2,
     col = pollinator_col
   )
