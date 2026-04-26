@@ -117,6 +117,20 @@ Apid_Summary_20_plot <- Apid_Summary_20 %>%
     park_label = str_squish(park_label)
   )
 
+# 4.0 Exploratory ranked dot plot ####
+
+# Clean park names for plotting
+Apid_Summary_20_plot <- Apid_Summary_20 %>%
+  mutate(
+    park_label = as.character(poly_id),
+    park_label = str_replace_all(park_label, "_", " "),
+    park_label = str_replace(park_label, "^Broward County ", ""),
+    park_label = str_replace(park_label, "^Broward ", ""),
+    park_label = str_replace(park_label, " Preserve Park$", " Preserve"),
+    park_label = str_replace(park_label, " Nature Area$", " Natural Area"),
+    park_label = str_squish(park_label)
+  )
+
 explore_Plot1 <- ggplot(
   data = Apid_Summary_20_plot,
   aes(
@@ -129,34 +143,58 @@ explore_Plot1 <- ggplot(
     aes(size = n_apidae),
     alpha = 0.9
   ) +
-  coord_flip() +
+  geom_text(
+    aes(
+      y = 106,
+      label = n_apidae
+    ),
+    color = "grey25",
+    size = 4.5,
+    hjust = 0.5
+  ) +
+  annotate(
+    "text",
+    x = length(unique(Apid_Summary_20_plot$park_label)) + 0.8,
+    y = 106,
+    label = "N bee obs.",
+    hjust = 0.5,
+    size = 4.8,
+    fontface = "bold",
+    color = "grey20"
+  ) +
+  coord_flip(clip = "off") +
   scale_color_gradientn(
     colors = hb_ramp,
     name = "% honey bee"
   ) +
   scale_y_continuous(
-    limits = c(0, 100),
+    limits = c(0, 110),
     breaks = seq(0, 100, 20),
-    labels = function(x) paste0(x, "%")
+    labels = function(x) paste0(x, "%"),
+    expand = expansion(mult = c(0.01, 0.01))
   ) +
   scale_size_continuous(
-    range = c(2.5, 9),
-    name = "Number of Apidae\nobservations"
+    range = c(3, 9),
+    guide = "none"
   ) +
-  theme_minimal(base_size = 13) +
+  theme_minimal(base_size = 17) +
   theme(
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
     axis.title.y = element_blank(),
-    legend.position = "right",
-    legend.title = element_text(size = 11),
-    legend.text = element_text(size = 10),
-    plot.title = element_text(face = "bold", size = 15),
-    plot.subtitle = element_text(size = 11)
+    axis.text.y = element_text(size = 16),
+    axis.text.x = element_text(size = 15),
+    axis.title.x = element_text(size = 18),
+    legend.position = "none",
+    legend.title = element_text(size = 17),
+    legend.text = element_text(size = 15),
+    plot.title = element_text(face = "bold", size = 22),
+    plot.subtitle = element_text(size = 17),
+    plot.margin = margin(10, 35, 10, 10)
   ) +
   labs(
     title = expression(italic("Apis") ~ " relative abundance by park"),
-    subtitle = "Parks with more than 5 Apidae observations",
+    subtitle = "Parks with more than 5 Anthophila observations",
     x = NULL,
     y = "Honey bee observations"
   )
@@ -164,110 +202,17 @@ explore_Plot1 <- ggplot(
 explore_Plot1
 
 ggsave(
-  "../Output/apis_relative_abundance_dotplot.png",
-  explore_Plot1,
-  width = 8,
+  "../Output/apis_relative_abundance_dotplot_poster.png",
+  plot = explore_Plot1,
+  width = 14,
   height = 9,
-  dpi = 300
+  units = "in",
+  dpi = 300,
+  bg = "white"
 )
 
-# 5.0 Quick map of all bee observations ####
 
-bee_points_map <- ggplot() +
-  geom_sf(
-    data = parks,
-    fill = "grey95",
-    color = "grey70",
-    linewidth = 0.2
-  ) +
-  geom_sf(
-    data = bees_sf,
-    alpha = 0.5,
-    size = 0.8
-  ) +
-  theme_minimal(base_size = 13) +
-  theme(
-    panel.grid = element_blank(),
-    axis.title = element_blank(),
-    axis.text = element_blank(),
-    axis.ticks = element_blank()
-  ) +
-  labs(
-    title = "Broward County bee observations",
-    subtitle = "All Anthophila observations before filtering to park interiors"
-  )
-
-bee_points_map
-
-ggsave(
-  "../Output/broward_bee_observations_map.png",
-  bee_points_map,
-  width = 8,
-  height = 6,
-  dpi = 300
-)
-
-# 6.0 Optional density map of bee observations ####
-
-bees_coords <- bees_sf %>%
-  st_transform(3857) %>%
-  cbind(st_coordinates(.))
-
-bee_density_map <- ggplot() +
-  geom_sf(
-    data = st_transform(parks, 3857),
-    fill = "grey95",
-    color = "grey70",
-    linewidth = 0.2
-  ) +
-  stat_density_2d(
-    data = bees_coords,
-    aes(
-      X,
-      Y,
-      fill = after_stat(level),
-      alpha = after_stat(level)
-    ),
-    geom = "polygon",
-    contour = TRUE
-  ) +
-  geom_point(
-    data = bees_coords,
-    aes(X, Y),
-    size = 0.4,
-    alpha = 0.4
-  ) +
-  scale_fill_gradientn(
-    colors = hb_ramp,
-    guide = "none"
-  ) +
-  scale_alpha(
-    range = c(0.05, 0.35),
-    guide = "none"
-  ) +
-  coord_sf(crs = st_crs(3857)) +
-  theme_minimal(base_size = 13) +
-  theme(
-    panel.grid = element_blank(),
-    axis.title = element_blank(),
-    axis.text = element_blank(),
-    axis.ticks = element_blank()
-  ) +
-  labs(
-    title = "Spatial density of Broward County bee observations"
-  )
-
-bee_density_map
-
-ggsave(
-  "../Output/broward_bee_observation_density_map.png",
-  bee_density_map,
-  width = 8,
-  height = 6,
-  dpi = 300
-)
-
-# 7.0 Map honey bee relative abundance by park ####
+# 5.0 Map honey bee relative abundance by park ####
 
 # Only plot in urban portion of Broward
 broward_urban <- st_read(
@@ -336,20 +281,20 @@ parks_without_data
 apis_map <- ggplot() +
   geom_sf(
     data = broward_urban,
-    fill = "white",
+    fill = "grey95",
     color = fau_dark_gray,
-    linewidth = 0.4
+    linewidth = 0.45
   ) +
   geom_sf(
     data = parks_apis_urban,
     aes(fill = percentageHB),
-    color = "white",
-    linewidth = 0.2
+    color = NA,
+    linewidth = 0
   ) +
   scale_fill_gradientn(
     colors = hb_ramp,
     labels = function(x) paste0(x, "%"),
-    na.value = "white",
+    na.value = "grey85",
     name = "% honey bee\nobservations"
   ) +
   coord_sf(
@@ -357,21 +302,12 @@ apis_map <- ggplot() +
     ylim = st_bbox(broward_urban)[c("ymin", "ymax")],
     expand = FALSE
   ) +
-  theme_minimal(base_size = 13) +
+  theme_void(base_size = 13) +
   theme(
-    panel.grid = element_blank(),
-    axis.title = element_blank(),
-    axis.text = element_blank(),
-    axis.ticks = element_blank(),
-    legend.position = "right",
-    legend.title = element_text(size = 11),
-    legend.text = element_text(size = 10),
-    plot.title = element_text(face = "bold", size = 15),
-    plot.subtitle = element_text(size = 11)
-  ) +
-  labs(
-    title = expression(italic("Apis") ~ " relative abundance across urban Broward parks"),
-    subtitle = "Mapped for parks with more than 5 Apidae observations"
+    legend.position = "none",
+    plot.background = element_rect(fill = "transparent", color = NA),
+    panel.background = element_rect(fill = "transparent", color = NA),
+    plot.margin = margin(0, 0, 0, 0)
   )
 
 apis_map
@@ -379,7 +315,107 @@ apis_map
 ggsave(
   "../Output/broward_urban_apis_relative_abundance_map.png",
   apis_map,
+  width = 5.5,
+  height = 5.5,
+  dpi = 300,
+  bg = "transparent"
+)
+
+
+####extra maps not used ####
+# 5.0 Quick map of all bee observations##
+
+bee_points_map <- ggplot() +
+  geom_sf(
+    data = parks,
+    fill = "grey95",
+    color = "grey70",
+    linewidth = 0.2
+  ) +
+  geom_sf(
+    data = bees_sf,
+    alpha = 0.5,
+    size = 0.8
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    panel.grid = element_blank(),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  ) +
+  labs(
+    title = "Broward County bee observations",
+    subtitle = "All Anthophila observations before filtering to park interiors"
+  )
+
+bee_points_map
+
+ggsave(
+  "../Output/broward_bee_observations_map.png",
+  bee_points_map,
   width = 8,
   height = 6,
   dpi = 300
 )
+
+# 6.0 Optional density map of bee observations #
+
+bees_coords <- bees_sf %>%
+  st_transform(3857) %>%
+  cbind(st_coordinates(.))
+
+bee_density_map <- ggplot() +
+  geom_sf(
+    data = st_transform(parks, 3857),
+    fill = "grey95",
+    color = "grey70",
+    linewidth = 0.2
+  ) +
+  stat_density_2d(
+    data = bees_coords,
+    aes(
+      X,
+      Y,
+      fill = after_stat(level),
+      alpha = after_stat(level)
+    ),
+    geom = "polygon",
+    contour = TRUE
+  ) +
+  geom_point(
+    data = bees_coords,
+    aes(X, Y),
+    size = 0.4,
+    alpha = 0.4
+  ) +
+  scale_fill_gradientn(
+    colors = hb_ramp,
+    guide = "none"
+  ) +
+  scale_alpha(
+    range = c(0.05, 0.35),
+    guide = "none"
+  ) +
+  coord_sf(crs = st_crs(3857)) +
+  theme_minimal(base_size = 13) +
+  theme(
+    panel.grid = element_blank(),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  ) +
+  labs(
+    title = "Spatial density of Broward County bee observations"
+  )
+
+bee_density_map
+
+ggsave(
+  "../Output/broward_bee_observation_density_map.png",
+  bee_density_map,
+  width = 8,
+  height = 6,
+  dpi = 300
+)
+
