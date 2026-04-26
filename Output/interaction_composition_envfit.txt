@@ -1,0 +1,12 @@
+
+***VECTORS
+
+                        NMDS1     NMDS2     r2 Pr(>r)    
+hb_raw              -0.095138  0.995460 0.1378  0.380    
+log_interaction_sum -0.134487 -0.990920 0.8123  0.001 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Permutation: free
+Number of permutations: 999
+
+

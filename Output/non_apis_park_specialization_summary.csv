@@ -1,0 +1,12 @@
+"park_name","park_join","mean_d_prime","median_d_prime","n_non_apis_taxa","n_taxon_park_pairs","hb_raw","hb_percent","interaction_sum","log_interaction_sum"
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center",0.459096440254711,0.459096440254711,2,2,1,100,21,3.09104245335832
+"Broward_Fern Forest Nature Center","broward_fern forest nature center",0.256888004027281,0.3044057065485,5,5,0.625,62.5,29,3.40119738166216
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center",0.290419954159877,0.277812545882346,3,3,0.702127659574468,70.2127659574468,40,3.71357206670431
+"Broward_Markham Park","broward_markham park",0.347136875827524,0.308822056486212,14,14,0.660714285714286,66.0714285714286,126,4.84418708645859
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area",0.244929881974262,0.160101401380419,3,3,0.2,20,26,3.29583686600433
+"Broward_Quiet Waters Park","broward_quiet waters park",0.247137080678732,0.228849039264985,14,14,0.585714285714286,58.5714285714286,85,4.45434729625351
+"Broward_Tradewinds Park","broward_tradewinds park",0.501104953027176,0.509406082990988,3,3,0.5,50,36,3.61091791264422
+"Broward_Tree Tops Park","broward_tree tops park",0.203650624014315,0.200075867058844,4,4,0.36,36,40,3.71357206670431
+"Davie_Robbins Preserve","davie_robbins preserve",0.902237000160228,0.902237000160228,1,1,0.5,50,14,2.70805020110221
+"Plantation_Hoffman Park","plantation_hoffman park",0.355332320059283,0.355332320059283,1,1,0.411764705882353,41.1764705882353,19,2.99573227355399
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail",0.261189259270298,0.205960851965529,3,3,1,100,21,3.09104245335832

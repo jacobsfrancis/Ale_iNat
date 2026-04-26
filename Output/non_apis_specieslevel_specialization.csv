@@ -1,0 +1,431 @@
+"park_name","park_join","pollinator_taxon","d_prime","pollinator_interactions","n_apidae","n_hb","hb_percent","hb_raw","interaction_sum","log_interaction_sum","n_plants","n_pollinators","log_pollinator_interactions"
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Euphoria sepulcralis",0,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Heliconius charithonia",0.433109754729017,10,11,11,100,1,21,3.09104245335832,15,12,2.39789527279837
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Junonia neildi",0.485083125780406,6,11,11,100,1,21,3.09104245335832,15,12,1.94591014905531
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Leptotes cassius",0,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Aellopos tantalus",0.569323441926607,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Dryas iulia",0.0693234419266071,2,11,11,100,1,21,3.09104245335832,15,12,1.09861228866811
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Phocides pigmalion",0.548455006504028,3,11,11,100,1,21,3.09104245335832,15,12,1.38629436111989
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Dione vanillae",0.698970004336019,3,11,11,100,1,21,3.09104245335832,15,12,1.38629436111989
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Urbanus proteus",0.138646883853214,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Eumaeus atala",1,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Phoebis statira",1,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Anartia jatrophae",1,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Eurema daira",1,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Syntomeida epilais jucundissima",1,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Atalopedes huron",0.569323441926607,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_Anne Kolb Nature Center","broward_anne kolb nature center","Nathalis iole",0.569323441926607,1,11,11,100,1,21,3.09104245335832,15,12,0.693147180559945
+"Broward_CB Smith Park","broward_cb smith park","Dione vanillae",1,1,24,18,75,0.75,2,1.09861228866811,2,2,0.693147180559945
+"Broward_CB Smith Park","broward_cb smith park","Anartia jatrophae",0.121764601316985,2,24,18,75,0.75,2,1.09861228866811,2,2,1.09861228866811
+"Broward_CB Smith Park","broward_cb smith park","Epipagis forsythae",0,1,24,18,75,0.75,2,1.09861228866811,2,2,0.693147180559945
+"Broward_CB Smith Park","broward_cb smith park","Eurema daira",0,1,24,18,75,0.75,2,1.09861228866811,2,2,0.693147180559945
+"Broward_Central Broward Regional Park","broward_central broward regional park","Anartia jatrophae",0,1,7,4,57.1428571428571,0.571428571428571,3,1.38629436111989,3,2,0.693147180559945
+"Broward_Central Broward Regional Park","broward_central broward regional park","Dryas iulia",0,1,7,4,57.1428571428571,0.571428571428571,3,1.38629436111989,3,2,0.693147180559945
+"Broward_Central Broward Regional Park","broward_central broward regional park","Halictus poeyi",0.362782729624982,3,7,4,57.1428571428571,0.571428571428571,3,1.38629436111989,3,2,1.38629436111989
+"Broward_Central Broward Regional Park","broward_central broward regional park","Heliconius charithonia",0,1,7,4,57.1428571428571,0.571428571428571,3,1.38629436111989,3,2,0.693147180559945
+"Broward_Central Broward Regional Park","broward_central broward regional park","Hemiargus ceraunus",0,1,7,4,57.1428571428571,0.571428571428571,3,1.38629436111989,3,2,0.693147180559945
+"Broward_Central Broward Regional Park","broward_central broward regional park","Dione vanillae",1,3,7,4,57.1428571428571,0.571428571428571,3,1.38629436111989,3,2,1.38629436111989
+"Broward_Crystal Lake Sand Pine Scrub","broward_crystal lake sand pine scrub","Erynnis horatius",0.369070246428543,1,6,5,83.3333333333333,0.833333333333333,4,1.6094379124341,3,4,0.693147180559945
+"Broward_Crystal Lake Sand Pine Scrub","broward_crystal lake sand pine scrub","Leptotes cassius",0.369070246428543,1,6,5,83.3333333333333,0.833333333333333,4,1.6094379124341,3,4,0.693147180559945
+"Broward_Crystal Lake Sand Pine Scrub","broward_crystal lake sand pine scrub","Danaus plexippus",0.547411228938166,2,6,5,83.3333333333333,0.833333333333333,4,1.6094379124341,3,4,1.09861228866811
+"Broward_Crystal Lake Sand Pine Scrub","broward_crystal lake sand pine scrub","Thorybes dorantes",0,1,6,5,83.3333333333333,0.833333333333333,4,1.6094379124341,3,4,0.693147180559945
+"Broward_Crystal Lake Sand Pine Scrub","broward_crystal lake sand pine scrub","Nathalis iole",1,1,6,5,83.3333333333333,0.833333333333333,4,1.6094379124341,3,4,0.693147180559945
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Anartia jatrophae",0,2,NA,NA,NA,NA,9,2.30258509299405,5,6,1.09861228866811
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Dione vanillae",0.213567149332481,4,NA,NA,NA,NA,9,2.30258509299405,5,6,1.6094379124341
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Dryas iulia",0.239903133228131,3,NA,NA,NA,NA,9,2.30258509299405,5,6,1.38629436111989
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Erynnis horatius",0,1,NA,NA,NA,NA,9,2.30258509299405,5,6,0.693147180559945
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Heliconius charithonia",0,1,NA,NA,NA,NA,9,2.30258509299405,5,6,0.693147180559945
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Hylephila phyleus",0,1,NA,NA,NA,NA,9,2.30258509299405,5,6,0.693147180559945
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Eurema daira",1,1,NA,NA,NA,NA,9,2.30258509299405,5,6,0.693147180559945
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Cymaenes tripunctus",1,1,NA,NA,NA,NA,9,2.30258509299405,5,6,0.693147180559945
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Leptotes cassius",1,1,NA,NA,NA,NA,9,2.30258509299405,5,6,0.693147180559945
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Phoebis philea",1,1,NA,NA,NA,NA,9,2.30258509299405,5,6,0.693147180559945
+"Broward_Everglades Holiday Park","broward_everglades holiday park","Danaus gilippus",1,1,NA,NA,NA,NA,9,2.30258509299405,5,6,0.693147180559945
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Chrysanthrax cypris",0,1,16,10,62.5,0.625,29,3.40119738166216,14,12,0.693147180559945
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Danaus gilippus",0,2,16,10,62.5,0.625,29,3.40119738166216,14,12,1.09861228866811
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Erynnis horatius",0.1571821753066,7,16,10,62.5,0.625,29,3.40119738166216,14,12,2.07944154167984
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Eumaeus atala",0.175443728865863,11,16,10,62.5,0.625,29,3.40119738166216,14,12,2.484906649788
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Heliconius charithonia",0.3044057065485,7,16,10,62.5,0.625,29,3.40119738166216,14,12,2.07944154167984
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Heraclides cresphontes",0.305736086207653,8,16,10,62.5,0.625,29,3.40119738166216,14,12,2.19722457733622
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Hylephila phyleus",0.0300842629743097,2,16,10,62.5,0.625,29,3.40119738166216,14,12,1.09861228866811
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Marpesia petreus",0.341672323207788,7,16,10,62.5,0.625,29,3.40119738166216,14,12,2.07944154167984
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Nathalis iole",0,1,16,10,62.5,0.625,29,3.40119738166216,14,12,0.693147180559945
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Urbanus proteus",0,1,16,10,62.5,0.625,29,3.40119738166216,14,12,0.693147180559945
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Danaus plexippus",1,3,16,10,62.5,0.625,29,3.40119738166216,14,12,1.38629436111989
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Augochlora pura",0.563791416028937,1,16,10,62.5,0.625,29,3.40119738166216,14,12,0.693147180559945
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Pyrisitia lisa",0.563791416028937,1,16,10,62.5,0.625,29,3.40119738166216,14,12,0.693147180559945
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Eurema daira",1,2,16,10,62.5,0.625,29,3.40119738166216,14,12,1.09861228866811
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Danaus eresimus",0.493577516823278,1,16,10,62.5,0.625,29,3.40119738166216,14,12,0.693147180559945
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Burnsius oileus",1,1,16,10,62.5,0.625,29,3.40119738166216,14,12,0.693147180559945
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Anartia jatrophae",0.781895708014469,1,16,10,62.5,0.625,29,3.40119738166216,14,12,0.693147180559945
+"Broward_Fern Forest Nature Center","broward_fern forest nature center","Systoechus solitus",0.387703842372529,1,16,10,62.5,0.625,29,3.40119738166216,14,12,0.693147180559945
+"Broward_Highlands Scrub Natural Area","broward_highlands scrub natural area","Leptotes cassius",1,2,32,20,62.5,0.625,2,1.09861228866811,2,2,1.09861228866811
+"Broward_Highlands Scrub Natural Area","broward_highlands scrub natural area","Anartia jatrophae",0,1,32,20,62.5,0.625,2,1.09861228866811,2,2,0.693147180559945
+"Broward_Highlands Scrub Natural Area","broward_highlands scrub natural area","Dione vanillae",0,1,32,20,62.5,0.625,2,1.09861228866811,2,2,0.693147180559945
+"Broward_Kristin Jacobs Natural Area at Hillsboro Pineland","broward_kristin jacobs natural area at hillsboro pineland","Danaus gilippus",0.547411228938166,2,NA,NA,NA,NA,4,1.6094379124341,4,4,1.09861228866811
+"Broward_Kristin Jacobs Natural Area at Hillsboro Pineland","broward_kristin jacobs natural area at hillsboro pineland","Erynnis horatius",0,1,NA,NA,NA,NA,4,1.6094379124341,4,4,0.693147180559945
+"Broward_Kristin Jacobs Natural Area at Hillsboro Pineland","broward_kristin jacobs natural area at hillsboro pineland","Danaus plexippus",1,1,NA,NA,NA,NA,4,1.6094379124341,4,4,0.693147180559945
+"Broward_Kristin Jacobs Natural Area at Hillsboro Pineland","broward_kristin jacobs natural area at hillsboro pineland","Heliconius charithonia",1,1,NA,NA,NA,NA,4,1.6094379124341,4,4,0.693147180559945
+"Broward_Kristin Jacobs Natural Area at Hillsboro Pineland","broward_kristin jacobs natural area at hillsboro pineland","Marpesia petreus",1,1,NA,NA,NA,NA,4,1.6094379124341,4,4,0.693147180559945
+"Broward_Kristin Jacobs Natural Area at Hillsboro Pineland","broward_kristin jacobs natural area at hillsboro pineland","Anartia jatrophae",0.369070246428543,1,NA,NA,NA,NA,4,1.6094379124341,4,4,0.693147180559945
+"Broward_Kristin Jacobs Natural Area at Hillsboro Pineland","broward_kristin jacobs natural area at hillsboro pineland","Hylephila phyleus",0.369070246428543,1,NA,NA,NA,NA,4,1.6094379124341,4,4,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Cymaenes tripunctus",0,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Danaus gilippus",0.067932290728221,3,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.38629436111989
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Danaus plexippus",0,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Dione vanillae",0.197570872210339,3,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.38629436111989
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Dryas iulia",0.19703348685168,4,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.6094379124341
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Heliconius charithonia",0.188972380961044,15,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,2.77258872223978
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Hylephila phyleus",0.277812545882346,5,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.79175946922805
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Hymenia perspectalis",0,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Marpesia petreus",0.40447493563624,9,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,2.30258509299405
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Nathalis iole",0,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Pontia protodice",0,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Pyrausta tyralis",0,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Trichiotinus lunulatus",0.463425963394654,2,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.09861228866811
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Papilio palamedes",0.568018110565546,3,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.38629436111989
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Anartia jatrophae",0.505310339575983,3,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.38629436111989
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Erynnis horatius",0.407287383368983,3,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.38629436111989
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Heraclides cresphontes",0.146030586109614,3,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.38629436111989
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Thorybes dorantes",0.136324287461737,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Urbanus proteus",0.136324287461737,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Heliconius charithonia tuckeri",1,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Ascia monuste",0.379392843664144,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Siproeta stelenes",1,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Augochlora pura",0.265638864426444,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Euglossa dilemma",0.449156950790586,2,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,1.09861228866811
+"Broward_Long Key Natural Area and Nature Center","broward_long key natural area and nature center","Asbolis capucinus",1,1,47,33,70.2127659574468,0.702127659574468,40,3.71357206670431,12,20,0.693147180559945
+"Broward_Markham Park","broward_markham park","Vanessa atalanta",1,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Dione vanillae",0.373389003234296,14,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,2.70805020110221
+"Broward_Markham Park","broward_markham park","Anartia jatrophae",0.298797579226053,18,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,2.94443897916644
+"Broward_Markham Park","broward_markham park","Atalopedes huron",0,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Burnsius albezens",0.0577737508991457,2,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.09861228866811
+"Broward_Markham Park","broward_markham park","Cymaenes tripunctus",0.293881804748869,8,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,2.19722457733622
+"Broward_Markham Park","broward_markham park","Danaus eresimus",0.201007441290886,9,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,2.30258509299405
+"Broward_Markham Park","broward_markham park","Danaus gilippus",0.318846533746371,19,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,2.99573227355399
+"Broward_Markham Park","broward_markham park","Danaus plexippus",0.224402624587948,19,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,2.99573227355399
+"Broward_Markham Park","broward_markham park","Dryas iulia",0.164004046722011,21,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,3.09104245335832
+"Broward_Markham Park","broward_markham park","Erynnis horatius",0.15426308171964,6,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.94591014905531
+"Broward_Markham Park","broward_markham park","Heliconius charithonia",0.422614324539974,34,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,3.55534806148941
+"Broward_Markham Park","broward_markham park","Hylephila phyleus",0.237640772926117,4,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.6094379124341
+"Broward_Markham Park","broward_markham park","Leptotes cassius",0.356114089451665,5,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.79175946922805
+"Broward_Markham Park","broward_markham park","Panoquina ocola",0.0577737508991457,2,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.09861228866811
+"Broward_Markham Park","broward_markham park","Phyciodes tharos",0,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Pontia protodice",0,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Syngamia florella",0.091890993751352,3,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.38629436111989
+"Broward_Markham Park","broward_markham park","Thorybes dorantes",0.205285277006435,8,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,2.19722457733622
+"Broward_Markham Park","broward_markham park","Oligoria maculata",1,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Marpesia petreus",0.502348156627633,5,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.79175946922805
+"Broward_Markham Park","broward_markham park","Phoebis philea",0.788460679810722,12,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,2.56494935746154
+"Broward_Markham Park","broward_markham park","Phoebis sennae",0.556501618872832,6,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.94591014905531
+"Broward_Markham Park","broward_markham park","Phoebis statira",0.631661032062575,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Syntomeida epilais",0.353691665258878,2,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.09861228866811
+"Broward_Markham Park","broward_markham park","Burnsius oileus",0.338893351463765,3,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.38629436111989
+"Broward_Markham Park","broward_markham park","Ceratina floridana",0.303224906093235,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Eurema daira",0.411707582490313,4,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.6094379124341
+"Broward_Markham Park","broward_markham park","Lerodea eufala",0.343370715331543,2,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.09861228866811
+"Broward_Markham Park","broward_markham park","Urbanus proteus",0.418121943245149,3,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.38629436111989
+"Broward_Markham Park","broward_markham park","Lerema accius",0.822348190123678,2,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.09861228866811
+"Broward_Markham Park","broward_markham park","Ascia monuste",0.427857646956006,3,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.38629436111989
+"Broward_Markham Park","broward_markham park","Nathalis iole",0.293461314674105,2,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.09861228866811
+"Broward_Markham Park","broward_markham park","Phyciodes phaon",0.427857646956006,3,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.38629436111989
+"Broward_Markham Park","broward_markham park","Heliconius charithonia tuckeri",0.431299620984147,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Papilio palamedes",1,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Asbolis capucinus",0.748569538815339,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Limenitis archippus",0.21409127184198,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Markham Park","broward_markham park","Strymon istapa",0.297529868853498,2,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,1.09861228866811
+"Broward_Markham Park","broward_markham park","Utetheisa ornatrix",0.21409127184198,1,56,37,66.0714285714286,0.660714285714286,126,4.84418708645859,31,32,0.693147180559945
+"Broward_Military Trail Nature Area","broward_military trail nature area","Danaus plexippus",0.323283791784057,2,26,13,50,0.5,6,1.94591014905531,4,5,1.09861228866811
+"Broward_Military Trail Nature Area","broward_military trail nature area","Dryas iulia",0.323283791784057,2,26,13,50,0.5,6,1.94591014905531,4,5,1.09861228866811
+"Broward_Military Trail Nature Area","broward_military trail nature area","Heliconius charithonia",0,1,26,13,50,0.5,6,1.94591014905531,4,5,0.693147180559945
+"Broward_Military Trail Nature Area","broward_military trail nature area","Cymaenes tripunctus",1,1,26,13,50,0.5,6,1.94591014905531,4,5,0.693147180559945
+"Broward_Military Trail Nature Area","broward_military trail nature area","Agapostemon splendens",0.569323441926607,1,26,13,50,0.5,6,1.94591014905531,4,5,0.693147180559945
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Cymaenes tripunctus",0.320203475039303,4,10,2,20,0.2,26,3.29583686600433,7,11,1.6094379124341
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Erynnis horatius",0.082459555981163,7,10,2,20,0.2,26,3.29583686600433,7,11,2.07944154167984
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Eumaeus atala",0.25219381720514,2,10,2,20,0.2,26,3.29583686600433,7,11,1.09861228866811
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Heliconius charithonia",0.407812369802074,3,10,2,20,0.2,26,3.29583686600433,7,11,1.38629436111989
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Hylephila phyleus",0.208100114945993,3,10,2,20,0.2,26,3.29583686600433,7,11,1.38629436111989
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Lerodea eufala",0.160101401380419,5,10,2,20,0.2,26,3.29583686600433,7,11,1.79175946922805
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Megachile albitarsis",0.25219381720514,2,10,2,20,0.2,26,3.29583686600433,7,11,1.09861228866811
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Syngamia florella",0.0197754540341734,1,10,2,20,0.2,26,3.29583686600433,7,11,0.693147180559945
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Agapostemon splendens",0.487897785104997,3,10,2,20,0.2,26,3.29583686600433,7,11,1.38629436111989
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Dione vanillae",0.492228688561203,8,10,2,20,0.2,26,3.29583686600433,7,11,2.19722457733622
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Polites otho",0,1,10,2,20,0.2,26,3.29583686600433,7,11,0.693147180559945
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Thorybes dorantes",0,1,10,2,20,0.2,26,3.29583686600433,7,11,0.693147180559945
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Utetheisa ornatrix",0,1,10,2,20,0.2,26,3.29583686600433,7,11,0.693147180559945
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Strymon istapa",0.808055219045601,2,10,2,20,0.2,26,3.29583686600433,7,11,1.09861228866811
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Chrysanthrax cypris",1,1,10,2,20,0.2,26,3.29583686600433,7,11,0.693147180559945
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Halictus poeyi",0.619906233284066,1,10,2,20,0.2,26,3.29583686600433,7,11,0.693147180559945
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Hemiargus ceraunus",0.619906233284066,1,10,2,20,0.2,26,3.29583686600433,7,11,0.693147180559945
+"Broward_Miramar Pineland Natural Area","broward_miramar pineland natural area","Microbembex monodonta",0.619906233284066,1,10,2,20,0.2,26,3.29583686600433,7,11,0.693147180559945
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Anartia jatrophae",0.27023815442732,3,NA,NA,NA,NA,12,2.56494935746154,3,8,1.38629436111989
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Cymaenes tripunctus",0,1,NA,NA,NA,NA,12,2.56494935746154,3,8,0.693147180559945
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Danaus gilippus",0,1,NA,NA,NA,NA,12,2.56494935746154,3,8,0.693147180559945
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Danaus gilippus berenice",0.175425063581955,2,NA,NA,NA,NA,12,2.56494935746154,3,8,1.09861228866811
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Danaus plexippus",0,2,NA,NA,NA,NA,12,2.56494935746154,3,8,1.09861228866811
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Dione vanillae",0.22976184557268,3,NA,NA,NA,NA,12,2.56494935746154,3,8,1.38629436111989
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Erynnis horatius",0.0525503814917271,2,NA,NA,NA,NA,12,2.56494935746154,3,8,1.09861228866811
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Eumaeus atala",0.0525503814917271,2,NA,NA,NA,NA,12,2.56494935746154,3,8,1.09861228866811
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Heliconius charithonia",0,1,NA,NA,NA,NA,12,2.56494935746154,3,8,0.693147180559945
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Marpesia petreus",0.22976184557268,3,NA,NA,NA,NA,12,2.56494935746154,3,8,1.38629436111989
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Leptotes cassius",1,1,NA,NA,NA,NA,12,2.56494935746154,3,8,0.693147180559945
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Heraclides cresphontes",1,2,NA,NA,NA,NA,12,2.56494935746154,3,8,1.09861228866811
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Hylephila phyleus",0.459523691145361,1,NA,NA,NA,NA,12,2.56494935746154,3,8,0.693147180559945
+"Broward_Pine Island Ridge Natural Area","broward_pine island ridge natural area","Syngamia florella",0.72976184557268,1,NA,NA,NA,NA,12,2.56494935746154,3,8,0.693147180559945
+"Broward_Plantation Heritage Park","broward_plantation heritage park","Anartia jatrophae",0,1,NA,NA,NA,NA,2,1.09861228866811,1,2,0.693147180559945
+"Broward_Plantation Heritage Park","broward_plantation heritage park","Dione vanillae",0,1,NA,NA,NA,NA,2,1.09861228866811,1,2,0.693147180559945
+"Broward_Plantation Heritage Park","broward_plantation heritage park","Atteva aurea",1,1,NA,NA,NA,NA,2,1.09861228866811,1,2,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Agapostemon splendens",0,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Anartia jatrophae",0.0947618364458697,8,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,2.19722457733622
+"Broward_Quiet Waters Park","broward_quiet waters park","Ascia monuste",0,2,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.09861228866811
+"Broward_Quiet Waters Park","broward_quiet waters park","Atalopedes huron",0,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Burnsius oileus",0.0846399120541603,8,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,2.19722457733622
+"Broward_Quiet Waters Park","broward_quiet waters park","Coelioxys dolichos",0,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Cymaenes tripunctus",0.345747642284887,4,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.6094379124341
+"Broward_Quiet Waters Park","broward_quiet waters park","Danaus gilippus",0.0986627407437613,3,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.38629436111989
+"Broward_Quiet Waters Park","broward_quiet waters park","Danaus plexippus",0.238011153503595,4,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.6094379124341
+"Broward_Quiet Waters Park","broward_quiet waters park","Dione vanillae",0.19145313639515,6,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.94591014905531
+"Broward_Quiet Waters Park","broward_quiet waters park","Dryas iulia",0,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Erynnis horatius",0.26713867875081,15,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,2.77258872223978
+"Broward_Quiet Waters Park","broward_quiet waters park","Eumaeus atala",0.274988620647499,2,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.09861228866811
+"Broward_Quiet Waters Park","broward_quiet waters park","Euphoria sepulcralis",0,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Halictus poeyi",0.370577062191124,5,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.79175946922805
+"Broward_Quiet Waters Park","broward_quiet waters park","Heliconius charithonia",0.217250033266294,9,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,2.30258509299405
+"Broward_Quiet Waters Park","broward_quiet waters park","Hemiargus ceraunus",0.362930314933781,6,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.94591014905531
+"Broward_Quiet Waters Park","broward_quiet waters park","Hylephila phyleus",0.116871849916739,17,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,2.89037175789616
+"Broward_Quiet Waters Park","broward_quiet waters park","Leptotes cassius",0.143915806593775,5,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.79175946922805
+"Broward_Quiet Waters Park","broward_quiet waters park","Marpesia petreus",0.342874531430519,7,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,2.07944154167984
+"Broward_Quiet Waters Park","broward_quiet waters park","Megachile parallela",0,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Nathalis iole",0.0704727492752435,2,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.09861228866811
+"Broward_Quiet Waters Park","broward_quiet waters park","Panoquina ocola",0.0986627407437613,3,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.38629436111989
+"Broward_Quiet Waters Park","broward_quiet waters park","Phyciodes phaon",0.264673685282752,4,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.6094379124341
+"Broward_Quiet Waters Park","broward_quiet waters park","Phyciodes tharos",0,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Strymon istapa",0.185162352709719,13,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,2.63905732961526
+"Broward_Quiet Waters Park","broward_quiet waters park","Syngamia florella",0.0948289188409882,4,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.6094379124341
+"Broward_Quiet Waters Park","broward_quiet waters park","Thorybes dorantes",0.240448045263676,15,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,2.77258872223978
+"Broward_Quiet Waters Park","broward_quiet waters park","Urbanus proteus",0.528370197417116,3,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.38629436111989
+"Broward_Quiet Waters Park","broward_quiet waters park","Asbolis capucinus",0.898509882012582,2,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.09861228866811
+"Broward_Quiet Waters Park","broward_quiet waters park","Amorbia concavana",1,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Anticarsia gemmatalis",0.186805707969528,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Eurema daira",0.381750306599942,5,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.79175946922805
+"Broward_Quiet Waters Park","broward_quiet waters park","Phoebis agarithe",0.460145262950684,7,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,2.07944154167984
+"Broward_Quiet Waters Park","broward_quiet waters park","Trigonopeltastes delta",0.685413505300906,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Burnsius albezens",1,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Phoebis philea",0.477483142493473,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Phoebis statira",0.477483142493473,1,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,0.693147180559945
+"Broward_Quiet Waters Park","broward_quiet waters park","Pyrausta tyralis",0.46828928709009,2,70,41,58.5714285714286,0.585714285714286,85,4.45434729625351,14,28,1.09861228866811
+"Broward_Secret Woods Park","broward_secret woods park","Danaus plexippus",0.208014597676509,2,NA,NA,NA,NA,7,2.07944154167984,4,5,1.09861228866811
+"Broward_Secret Woods Park","broward_secret woods park","Dryas iulia",0,1,NA,NA,NA,NA,7,2.07944154167984,4,5,0.693147180559945
+"Broward_Secret Woods Park","broward_secret woods park","Erynnis horatius",0,1,NA,NA,NA,NA,7,2.07944154167984,4,5,0.693147180559945
+"Broward_Secret Woods Park","broward_secret woods park","Heliconius charithonia",0.0331726027645887,3,NA,NA,NA,NA,7,2.07944154167984,4,5,1.38629436111989
+"Broward_Secret Woods Park","broward_secret woods park","Phoebis statira",0.660587909258952,4,NA,NA,NA,NA,7,2.07944154167984,4,5,1.6094379124341
+"Broward_Secret Woods Park","broward_secret woods park","Phocides pigmalion",1,1,NA,NA,NA,NA,7,2.07944154167984,4,5,0.693147180559945
+"Broward_Snake Warriors Island","broward_snake warriors island","Anartia jatrophae",0,1,10,5,50,0.5,7,2.07944154167984,4,7,0.693147180559945
+"Broward_Snake Warriors Island","broward_snake warriors island","Erynnis horatius",0.401695556581235,3,10,5,50,0.5,7,2.07944154167984,4,7,1.38629436111989
+"Broward_Snake Warriors Island","broward_snake warriors island","Erynnis zarucco",0,1,10,5,50,0.5,7,2.07944154167984,4,7,0.693147180559945
+"Broward_Snake Warriors Island","broward_snake warriors island","Heliconius charithonia",0,1,10,5,50,0.5,7,2.07944154167984,4,7,0.693147180559945
+"Broward_Snake Warriors Island","broward_snake warriors island","Hylephila phyleus",0.110628258352249,3,10,5,50,0.5,7,2.07944154167984,4,7,1.38629436111989
+"Broward_Snake Warriors Island","broward_snake warriors island","Eumaeus atala",1,1,10,5,50,0.5,7,2.07944154167984,4,7,0.693147180559945
+"Broward_Snake Warriors Island","broward_snake warriors island","Danaus plexippus",0.172912524653084,1,10,5,50,0.5,7,2.07944154167984,4,7,0.693147180559945
+"Broward_Snake Warriors Island","broward_snake warriors island","Junonia coenia",0.172912524653084,1,10,5,50,0.5,7,2.07944154167984,4,7,0.693147180559945
+"Broward_Snake Warriors Island","broward_snake warriors island","Dryas iulia",0.643792812891978,1,10,5,50,0.5,7,2.07944154167984,4,7,0.693147180559945
+"Broward_Snake Warriors Island","broward_snake warriors island","Heraclides cresphontes",0.643792812891978,1,10,5,50,0.5,7,2.07944154167984,4,7,0.693147180559945
+"Broward_Snake Warriors Island","broward_snake warriors island","Nathalis iole",1,1,10,5,50,0.5,7,2.07944154167984,4,7,0.693147180559945
+"Broward_Tall Cypress Natural Area","broward_tall cypress natural area","Coelioxys sayi",0,2,NA,NA,NA,NA,10,2.39789527279837,7,7,1.09861228866811
+"Broward_Tall Cypress Natural Area","broward_tall cypress natural area","Erynnis horatius",0,2,NA,NA,NA,NA,10,2.39789527279837,7,7,1.09861228866811
+"Broward_Tall Cypress Natural Area","broward_tall cypress natural area","Leptotes cassius",0.2,3,NA,NA,NA,NA,10,2.39789527279837,7,7,1.38629436111989
+"Broward_Tall Cypress Natural Area","broward_tall cypress natural area","Marpesia petreus",0.5,4,NA,NA,NA,NA,10,2.39789527279837,7,7,1.6094379124341
+"Broward_Tall Cypress Natural Area","broward_tall cypress natural area","Syngamia florella",0,1,NA,NA,NA,NA,10,2.39789527279837,7,7,0.693147180559945
+"Broward_Tall Cypress Natural Area","broward_tall cypress natural area","Dione vanillae",0.75,2,NA,NA,NA,NA,10,2.39789527279837,7,7,1.09861228866811
+"Broward_Tall Cypress Natural Area","broward_tall cypress natural area","Augochlora pura mosieri",0.666666666666667,1,NA,NA,NA,NA,10,2.39789527279837,7,7,0.693147180559945
+"Broward_Tall Cypress Natural Area","broward_tall cypress natural area","Phoebis philea",0.666666666666667,1,NA,NA,NA,NA,10,2.39789527279837,7,7,0.693147180559945
+"Broward_Tall Cypress Natural Area","broward_tall cypress natural area","Anartia jatrophae",0.666666666666667,1,NA,NA,NA,NA,10,2.39789527279837,7,7,0.693147180559945
+"Broward_Topeekeegee Yugnee Park","broward_topeekeegee yugnee park","Heliconius charithonia",1,1,6,6,100,1,8,2.19722457733622,7,5,0.693147180559945
+"Broward_Topeekeegee Yugnee Park","broward_topeekeegee yugnee park","Dione vanillae",0.386852807234542,2,6,6,100,1,8,2.19722457733622,7,5,1.09861228866811
+"Broward_Topeekeegee Yugnee Park","broward_topeekeegee yugnee park","Erynnis horatius",0,2,6,6,100,1,8,2.19722457733622,7,5,1.09861228866811
+"Broward_Topeekeegee Yugnee Park","broward_topeekeegee yugnee park","Dryas iulia",0.369070246428543,1,6,6,100,1,8,2.19722457733622,7,5,0.693147180559945
+"Broward_Topeekeegee Yugnee Park","broward_topeekeegee yugnee park","Eumaeus atala",0.613147192765458,2,6,6,100,1,8,2.19722457733622,7,5,1.09861228866811
+"Broward_Topeekeegee Yugnee Park","broward_topeekeegee yugnee park","Anartia jatrophae",0.369070246428543,1,6,6,100,1,8,2.19722457733622,7,5,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Euglossa dilemma",0.792648833079647,2,26,13,50,0.5,36,3.61091791264422,16,19,1.09861228866811
+"Broward_Tradewinds Park","broward_tradewinds park","Marpesia petreus",0.691872703620322,3,26,13,50,0.5,36,3.61091791264422,16,19,1.38629436111989
+"Broward_Tradewinds Park","broward_tradewinds park","Phoebis philea",0.400176771136208,2,26,13,50,0.5,36,3.61091791264422,16,19,1.09861228866811
+"Broward_Tradewinds Park","broward_tradewinds park","Calpodes ethlius",1,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Anartia jatrophae",0.0904180760478934,4,26,13,50,0.5,36,3.61091791264422,16,19,1.6094379124341
+"Broward_Tradewinds Park","broward_tradewinds park","Cymaenes tripunctus",0.392472061943438,2,26,13,50,0.5,36,3.61091791264422,16,19,1.09861228866811
+"Broward_Tradewinds Park","broward_tradewinds park","Danaus eresimus",0.162764226425793,4,26,13,50,0.5,36,3.61091791264422,16,19,1.6094379124341
+"Broward_Tradewinds Park","broward_tradewinds park","Danaus plexippus",0.509406082990988,8,26,13,50,0.5,36,3.61091791264422,16,19,2.19722457733622
+"Broward_Tradewinds Park","broward_tradewinds park","Erynnis horatius",0.233059216839095,5,26,13,50,0.5,36,3.61091791264422,16,19,1.79175946922805
+"Broward_Tradewinds Park","broward_tradewinds park","Heliconius charithonia",0.139349584980547,4,26,13,50,0.5,36,3.61091791264422,16,19,1.6094379124341
+"Broward_Tradewinds Park","broward_tradewinds park","Hylephila phyleus",0.200131342430059,3,26,13,50,0.5,36,3.61091791264422,16,19,1.38629436111989
+"Broward_Tradewinds Park","broward_tradewinds park","Leptotes cassius",0.107995953949619,3,26,13,50,0.5,36,3.61091791264422,16,19,1.38629436111989
+"Broward_Tradewinds Park","broward_tradewinds park","Nathalis iole",0.261648041295626,2,26,13,50,0.5,36,3.61091791264422,16,19,1.09861228866811
+"Broward_Tradewinds Park","broward_tradewinds park","Pontia protodice",0,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Strymon istapa",0.392472061943438,2,26,13,50,0.5,36,3.61091791264422,16,19,1.09861228866811
+"Broward_Tradewinds Park","broward_tradewinds park","Syngamia florella",0.0465921651825021,2,26,13,50,0.5,36,3.61091791264422,16,19,1.09861228866811
+"Broward_Tradewinds Park","broward_tradewinds park","Urbanus proteus",0,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Augochlora pura",1,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Chrysanthrax cypris",0.658696902757007,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Eurema daira",0.658696902757007,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Chlorostrymon maesites",0.658696902757007,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Battus polydamas",0.784661720963303,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Trigonopeltastes delta",1,2,26,13,50,0.5,36,3.61091791264422,16,19,1.09861228866811
+"Broward_Tradewinds Park","broward_tradewinds park","Dryas iulia",0.35398516288991,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Phoebis sennae",0.35398516288991,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Phoebis statira",0.760849559251444,5,26,13,50,0.5,36,3.61091791264422,16,19,1.79175946922805
+"Broward_Tradewinds Park","broward_tradewinds park","Dione vanillae",0.784661720963303,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tradewinds Park","broward_tradewinds park","Halictus poeyi",1,1,26,13,50,0.5,36,3.61091791264422,16,19,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Alypia wittfeldii",0,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Anartia jatrophae",0.0986358979015034,8,25,9,36,0.36,40,3.71357206670431,12,18,2.19722457733622
+"Broward_Tree Tops Park","broward_tree tops park","Cymaenes tripunctus",0.146059539422756,4,25,9,36,0.36,40,3.71357206670431,12,18,1.6094379124341
+"Broward_Tree Tops Park","broward_tree tops park","Danaus eresimus",0,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Danaus gilippus",0,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Dione vanillae",0.315814864038067,14,25,9,36,0.36,40,3.71357206670431,12,18,2.70805020110221
+"Broward_Tree Tops Park","broward_tree tops park","Dryas iulia",0.410330518840655,3,25,9,36,0.36,40,3.71357206670431,12,18,1.38629436111989
+"Broward_Tree Tops Park","broward_tree tops park","Erynnis horatius",0.165112958757978,11,25,9,36,0.36,40,3.71357206670431,12,18,2.484906649788
+"Broward_Tree Tops Park","broward_tree tops park","Eumaeus atala",0.278261543883184,3,25,9,36,0.36,40,3.71357206670431,12,18,1.38629436111989
+"Broward_Tree Tops Park","broward_tree tops park","Heliconius charithonia",0.23503877535971,7,25,9,36,0.36,40,3.71357206670431,12,18,2.07944154167984
+"Broward_Tree Tops Park","broward_tree tops park","Heliconius charithonia tuckeri",0,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Pontia protodice",0,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Strymon melinus",0,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Syngamia florella",0.213485115144311,4,25,9,36,0.36,40,3.71357206670431,12,18,1.6094379124341
+"Broward_Tree Tops Park","broward_tree tops park","Leptotes cassius",1,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Agapostemon splendens",0.69575262710317,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Ascia monuste",0.69575262710317,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Danaus plexippus",0.401970492137161,2,25,9,36,0.36,40,3.71357206670431,12,18,1.09861228866811
+"Broward_Tree Tops Park","broward_tree tops park","Hylephila phyleus",0.269145022551146,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Thorybes dorantes",0.355941178211786,2,25,9,36,0.36,40,3.71357206670431,12,18,1.09861228866811
+"Broward_Tree Tops Park","broward_tree tops park","Eurema daira",1,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Marpesia petreus",0.623033005026025,4,25,9,36,0.36,40,3.71357206670431,12,18,1.6094379124341
+"Broward_Tree Tops Park","broward_tree tops park","Siproeta stelenes",0.461103742557706,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Pyrausta tyralis",0.80804127999344,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Euglossa dilemma",0.61608255998688,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Heraclides cresphontes",0.61608255998688,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Tree Tops Park","broward_tree tops park","Burnsius oileus",0.69575262710317,1,25,9,36,0.36,40,3.71357206670431,12,18,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Pontia protodice",1,1,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Anartia jatrophae",0,1,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Ascia monuste",0,1,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Erynnis horatius",0,1,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Heliconius charithonia",0.5,3,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,1.38629436111989
+"Broward_Vista View Park","broward_vista view park","Hylephila phyleus",0,1,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Nathalis iole",0,1,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Marpesia petreus",1,1,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Danaus plexippus",0.386852807234542,1,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Dione vanillae",0.386852807234542,1,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,0.693147180559945
+"Broward_Vista View Park","broward_vista view park","Pyrausta tyralis",0.380093766715934,2,39,27,69.2307692307692,0.692307692307692,10,2.39789527279837,6,8,1.09861228866811
+"Broward_Woodmont Natural Area","broward_woodmont natural area","Dione vanillae",0.5,2,NA,NA,NA,NA,4,1.6094379124341,4,3,1.09861228866811
+"Broward_Woodmont Natural Area","broward_woodmont natural area","Heraclides cresphontes",0.5,4,NA,NA,NA,NA,4,1.6094379124341,4,3,1.6094379124341
+"Broward_Woodmont Natural Area","broward_woodmont natural area","Marpesia petreus",1,1,NA,NA,NA,NA,4,1.6094379124341,4,3,0.693147180559945
+"Broward_Woodmont Natural Area","broward_woodmont natural area","Eurema daira",1,1,NA,NA,NA,NA,4,1.6094379124341,4,3,0.693147180559945
+"Coconut Creek_George S. Gerber Memorial Park","coconut creek_george s. gerber memorial park","Erynnis horatius",0.5,2,8,7,87.5,0.875,6,1.94591014905531,3,4,1.09861228866811
+"Coconut Creek_George S. Gerber Memorial Park","coconut creek_george s. gerber memorial park","Heliconius charithonia",0.151861153330863,4,8,7,87.5,0.875,6,1.94591014905531,3,4,1.6094379124341
+"Coconut Creek_George S. Gerber Memorial Park","coconut creek_george s. gerber memorial park","Danaus plexippus",0.790522317510414,3,8,7,87.5,0.875,6,1.94591014905531,3,4,1.38629436111989
+"Coconut Creek_George S. Gerber Memorial Park","coconut creek_george s. gerber memorial park","Dione vanillae",0.5,1,8,7,87.5,0.875,6,1.94591014905531,3,4,0.693147180559945
+"Dania Beach_Linear Park","dania beach_linear park","Asbolis capucinus",1,2,NA,NA,NA,NA,46,3.85014760171006,8,13,1.09861228866811
+"Dania Beach_Linear Park","dania beach_linear park","Danaus plexippus",0.486634790429788,23,NA,NA,NA,NA,46,3.85014760171006,8,13,3.17805383034795
+"Dania Beach_Linear Park","dania beach_linear park","Anartia jatrophae",0.142200074419634,6,NA,NA,NA,NA,46,3.85014760171006,8,13,1.94591014905531
+"Dania Beach_Linear Park","dania beach_linear park","Atalopedes huron",0.216268049241798,1,NA,NA,NA,NA,46,3.85014760171006,8,13,0.693147180559945
+"Dania Beach_Linear Park","dania beach_linear park","Dione vanillae",0.453179959030381,10,NA,NA,NA,NA,46,3.85014760171006,8,13,2.39789527279837
+"Dania Beach_Linear Park","dania beach_linear park","Dryas iulia",0.51273809714233,16,NA,NA,NA,NA,46,3.85014760171006,8,13,2.83321334405622
+"Dania Beach_Linear Park","dania beach_linear park","Hylephila phyleus",0.561381619705332,5,NA,NA,NA,NA,46,3.85014760171006,8,13,1.79175946922805
+"Dania Beach_Linear Park","dania beach_linear park","Junonia neildi",0.401515307947692,2,NA,NA,NA,NA,46,3.85014760171006,8,13,1.09861228866811
+"Dania Beach_Linear Park","dania beach_linear park","Heliconius charithonia",0.293588332633537,26,NA,NA,NA,NA,46,3.85014760171006,8,13,3.29583686600433
+"Dania Beach_Linear Park","dania beach_linear park","Leptotes cassius",0.617870693618847,2,NA,NA,NA,NA,46,3.85014760171006,8,13,1.09861228866811
+"Dania Beach_Linear Park","dania beach_linear park","Choranthus capucinus",0.673740489657981,1,NA,NA,NA,NA,46,3.85014760171006,8,13,0.693147180559945
+"Dania Beach_Linear Park","dania beach_linear park","Erynnis horatius",0.673740489657981,1,NA,NA,NA,NA,46,3.85014760171006,8,13,0.693147180559945
+"Dania Beach_Linear Park","dania beach_linear park","Heraclides cresphontes",0.398215580720077,4,NA,NA,NA,NA,46,3.85014760171006,8,13,1.6094379124341
+"Dania Beach_Linear Park","dania beach_linear park","Phoebis philea",0.78901128764632,5,NA,NA,NA,NA,46,3.85014760171006,8,13,1.79175946922805
+"Davie_Robbins Preserve","davie_robbins preserve","Anartia jatrophae",0.314135308839255,4,6,3,50,0.5,14,2.70805020110221,9,11,1.6094379124341
+"Davie_Robbins Preserve","davie_robbins preserve","Dione vanillae",0.252574989159953,3,6,3,50,0.5,14,2.70805020110221,9,11,1.38629436111989
+"Davie_Robbins Preserve","davie_robbins preserve","Erynnis horatius",0.5,2,6,3,50,0.5,14,2.70805020110221,9,11,1.09861228866811
+"Davie_Robbins Preserve","davie_robbins preserve","Pyrausta tyralis",0,1,6,3,50,0.5,14,2.70805020110221,9,11,0.693147180559945
+"Davie_Robbins Preserve","davie_robbins preserve","Cymaenes tripunctus",1,1,6,3,50,0.5,14,2.70805020110221,9,11,0.693147180559945
+"Davie_Robbins Preserve","davie_robbins preserve","Danaus gilippus",0.748070363587408,2,6,3,50,0.5,14,2.70805020110221,9,11,1.09861228866811
+"Davie_Robbins Preserve","davie_robbins preserve","Danaus plexippus",0.317393805514015,1,6,3,50,0.5,14,2.70805020110221,9,11,0.693147180559945
+"Davie_Robbins Preserve","davie_robbins preserve","Choranthus capucinus",1,1,6,3,50,0.5,14,2.70805020110221,9,11,0.693147180559945
+"Davie_Robbins Preserve","davie_robbins preserve","Hylephila phyleus",0.284661720963303,2,6,3,50,0.5,14,2.70805020110221,9,11,1.09861228866811
+"Davie_Robbins Preserve","davie_robbins preserve","Thorybes dorantes",0,1,6,3,50,0.5,14,2.70805020110221,9,11,0.693147180559945
+"Davie_Robbins Preserve","davie_robbins preserve","Heliconius charithonia",0.902237000160228,6,6,3,50,0.5,14,2.70805020110221,9,11,1.94591014905531
+"Davie_Robbins Preserve","davie_robbins preserve","Marpesia petreus",0.569323441926607,1,6,3,50,0.5,14,2.70805020110221,9,11,0.693147180559945
+"Davie_Robbins Preserve","davie_robbins preserve","Eurema daira",1,1,6,3,50,0.5,14,2.70805020110221,9,11,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Danaus plexippus",0.339782820462309,6,NA,NA,NA,NA,11,2.484906649788,5,8,1.94591014905531
+"Davie_Wolf Lake Park","davie_wolf lake park","Agapostemon splendens",0,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Dryas iulia",0,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Heliconius charithonia",0.320084977705668,4,NA,NA,NA,NA,11,2.484906649788,5,8,1.6094379124341
+"Davie_Wolf Lake Park","davie_wolf lake park","Hylephila phyleus",0.352942495403575,4,NA,NA,NA,NA,11,2.484906649788,5,8,1.6094379124341
+"Davie_Wolf Lake Park","davie_wolf lake park","Marpesia petreus",0,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Syngamia florella",0,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Dione vanillae",0.698970004336019,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Eurema daira",0.698970004336019,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Thorybes dorantes",0.522878745280338,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Anartia jatrophae",0.698970004336019,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Danaus gilippus",0.698970004336019,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Davie_Wolf Lake Park","davie_wolf lake park","Leptotes cassius",0.301029995663981,1,NA,NA,NA,NA,11,2.484906649788,5,8,0.693147180559945
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Anartia jatrophae",0,1,NA,NA,NA,NA,17,2.89037175789616,7,13,0.693147180559945
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Danaus plexippus",0.571499002954743,4,NA,NA,NA,NA,17,2.89037175789616,7,13,1.6094379124341
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Erynnis horatius",0,1,NA,NA,NA,NA,17,2.89037175789616,7,13,0.693147180559945
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Euphoria sepulcralis",0,1,NA,NA,NA,NA,17,2.89037175789616,7,13,0.693147180559945
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Heliconius charithonia",0.310573289101901,4,NA,NA,NA,NA,17,2.89037175789616,7,13,1.6094379124341
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Heraclides cresphontes",0.270324162689327,4,NA,NA,NA,NA,17,2.89037175789616,7,13,1.6094379124341
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Marpesia petreus",0.405201360893933,2,NA,NA,NA,NA,17,2.89037175789616,7,13,1.09861228866811
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Phoebis agarithe",0.226023968370879,1,NA,NA,NA,NA,17,2.89037175789616,7,13,0.693147180559945
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Polygonus leo",0.226023968370879,1,NA,NA,NA,NA,17,2.89037175789616,7,13,0.693147180559945
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Eurema daira",0.666666666666667,1,NA,NA,NA,NA,17,2.89037175789616,7,13,0.693147180559945
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Dione vanillae",0.820947768248959,2,NA,NA,NA,NA,17,2.89037175789616,7,13,1.09861228866811
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Battus polydamas",0.358104463502083,2,NA,NA,NA,NA,17,2.89037175789616,7,13,1.09861228866811
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Phoebis philea",0.138345833092948,1,NA,NA,NA,NA,17,2.89037175789616,7,13,0.693147180559945
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Phoebis statira",0.432417854008331,2,NA,NA,NA,NA,17,2.89037175789616,7,13,1.09861228866811
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Asbolis capucinus",1,1,NA,NA,NA,NA,17,2.89037175789616,7,13,0.693147180559945
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Urbanus proteus",0.790522317510414,2,NA,NA,NA,NA,17,2.89037175789616,7,13,1.09861228866811
+"Fort Lauderdale_Snyder Park","fort lauderdale_snyder park","Uresiphita reversalis",0.471679166426281,1,NA,NA,NA,NA,17,2.89037175789616,7,13,0.693147180559945
+"Oakland Park_Stunson Nature Trail","oakland park_stunson nature trail","Anartia jatrophae",0,1,NA,NA,NA,NA,6,1.94591014905531,4,3,0.693147180559945
+"Oakland Park_Stunson Nature Trail","oakland park_stunson nature trail","Danaus gilippus",0.135164291983338,5,NA,NA,NA,NA,6,1.94591014905531,4,3,1.79175946922805
+"Oakland Park_Stunson Nature Trail","oakland park_stunson nature trail","Danaus plexippus",0.493268755485421,4,NA,NA,NA,NA,6,1.94591014905531,4,3,1.6094379124341
+"Oakland Park_Stunson Nature Trail","oakland park_stunson nature trail","Nathalis iole",1,1,NA,NA,NA,NA,6,1.94591014905531,4,3,0.693147180559945
+"Oakland Park_Stunson Nature Trail","oakland park_stunson nature trail","Phoebis statira",0.207518749639422,1,NA,NA,NA,NA,6,1.94591014905531,4,3,0.693147180559945
+"Oakland Park_Stunson Nature Trail","oakland park_stunson nature trail","Eurema daira",1,1,NA,NA,NA,NA,6,1.94591014905531,4,3,0.693147180559945
+"Pembroke Pines_Chapel Trail Nature Preserve","pembroke pines_chapel trail nature preserve","Dione vanillae",1,2,NA,NA,NA,NA,7,2.07944154167984,4,5,1.09861228866811
+"Pembroke Pines_Chapel Trail Nature Preserve","pembroke pines_chapel trail nature preserve","Dryas iulia",0,5,NA,NA,NA,NA,7,2.07944154167984,4,5,1.79175946922805
+"Pembroke Pines_Chapel Trail Nature Preserve","pembroke pines_chapel trail nature preserve","Heliconius charithonia",0.16376057402464,4,NA,NA,NA,NA,7,2.07944154167984,4,5,1.6094379124341
+"Pembroke Pines_Chapel Trail Nature Preserve","pembroke pines_chapel trail nature preserve","Danaus gilippus",1,1,NA,NA,NA,NA,7,2.07944154167984,4,5,0.693147180559945
+"Pembroke Pines_Chapel Trail Nature Preserve","pembroke pines_chapel trail nature preserve","Anartia jatrophae",1,1,NA,NA,NA,NA,7,2.07944154167984,4,5,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Leptotes cassius",1,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Choranthus capucinus",0.75,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Centris nitida",0.603759374819711,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Eurema daira",0.603759374819711,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Cymaenes tripunctus",0.207518749639422,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Danaus plexippus",0.207518749639422,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Dione vanillae",0.394714728255649,2,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,1.09861228866811
+"Plantation_Hoffman Park","plantation_hoffman park","Heraclides cresphontes",0.18596196376742,4,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,1.6094379124341
+"Plantation_Hoffman Park","plantation_hoffman park","Hyles lineata",0.207518749639422,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Thorybes dorantes",0.418414418476695,2,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,1.09861228866811
+"Plantation_Hoffman Park","plantation_hoffman park","Aphrissa neleis",0,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Augochlora pura",0,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Battus polydamas",0,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Dryas iulia",0,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Euglossa dilemma",0,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Heliconius charithonia",0.209904934151919,3,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,1.38629436111989
+"Plantation_Hoffman Park","plantation_hoffman park","Phoebis philea",0.355332320059283,6,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,1.94591014905531
+"Plantation_Hoffman Park","plantation_hoffman park","Urbanus proteus",0,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Hoffman Park","plantation_hoffman park","Megachile parallela",0.75,1,34,14,41.1764705882353,0.411764705882353,19,2.99573227355399,7,14,0.693147180559945
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Anartia jatrophae",0.544538176521047,7,15,15,100,1,21,3.09104245335832,8,8,2.07944154167984
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Erynnis horatius",0.205960851965529,5,15,15,100,1,21,3.09104245335832,8,8,1.79175946922805
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Danaus plexippus",1,2,15,15,100,1,21,3.09104245335832,8,8,1.09861228866811
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Panoquina ocola",0.768621786840241,1,15,15,100,1,21,3.09104245335832,8,8,0.693147180559945
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Marpesia petreus",0.681568321454786,4,15,15,100,1,21,3.09104245335832,8,8,1.6094379124341
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Heliconius charithonia",0.0330687493243192,5,15,15,100,1,21,3.09104245335832,8,8,1.79175946922805
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Danaus gilippus",0,2,15,15,100,1,21,3.09104245335832,8,8,1.09861228866811
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Dione vanillae",0,1,15,15,100,1,21,3.09104245335832,8,8,0.693147180559945
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Dryas iulia",0,1,15,15,100,1,21,3.09104245335832,8,8,0.693147180559945
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Heliconius charithonia tuckeri",0,1,15,15,100,1,21,3.09104245335832,8,8,0.693147180559945
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Larra bicolor",0,1,15,15,100,1,21,3.09104245335832,8,8,0.693147180559945
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Sceliphron caementarium",0,1,15,15,100,1,21,3.09104245335832,8,8,0.693147180559945
+"Plantation_Plantation Preserve Park & Linear Trail","plantation_plantation preserve park & linear trail","Leptotes cassius",0.65051499783199,2,15,15,100,1,21,3.09104245335832,8,8,1.09861228866811
+"Plantation_Volunteer Park","plantation_volunteer park","Anartia jatrophae",0,1,NA,NA,NA,NA,4,1.6094379124341,3,3,0.693147180559945
+"Plantation_Volunteer Park","plantation_volunteer park","Nathalis iole",0,3,NA,NA,NA,NA,4,1.6094379124341,3,3,1.38629436111989
+"Plantation_Volunteer Park","plantation_volunteer park","Heliconius charithonia",1,1,NA,NA,NA,NA,4,1.6094379124341,3,3,0.693147180559945
+"Plantation_Volunteer Park","plantation_volunteer park","Oenobotys vinotinctalis",0.369070246428543,1,NA,NA,NA,NA,4,1.6094379124341,3,3,0.693147180559945
+"Sunrise_Oak Hammock-Passive Park","sunrise_oak hammock-passive park","Anartia jatrophae",0.5,2,7,7,100,1,9,2.30258509299405,4,5,1.09861228866811
+"Sunrise_Oak Hammock-Passive Park","sunrise_oak hammock-passive park","Dryas iulia",0.202772703556289,3,7,7,100,1,9,2.30258509299405,4,5,1.38629436111989
+"Sunrise_Oak Hammock-Passive Park","sunrise_oak hammock-passive park","Erynnis horatius",0,1,7,7,100,1,9,2.30258509299405,4,5,0.693147180559945
+"Sunrise_Oak Hammock-Passive Park","sunrise_oak hammock-passive park","Marpesia petreus",0.317393805514015,1,7,7,100,1,9,2.30258509299405,4,5,0.693147180559945
+"Sunrise_Oak Hammock-Passive Park","sunrise_oak hammock-passive park","Dione vanillae",0,1,7,7,100,1,9,2.30258509299405,4,5,0.693147180559945
+"Sunrise_Oak Hammock-Passive Park","sunrise_oak hammock-passive park","Heraclides cresphontes",0,1,7,7,100,1,9,2.30258509299405,4,5,0.693147180559945
