@@ -2,6 +2,10 @@
 # predicts park-level plant-pollinator network structure while controlling
 # for total number of plant-pollinator interactions observed.
 #
+# Filter:
+#   Only parks/networks with at least 10 total plant-pollinator interactions
+#   are included.
+#
 # Inputs:
 #   ../Output/ApisRelAbund.csv
 #   ../Output/park_level_network_metrics.csv
@@ -11,24 +15,21 @@
 #   and styled regression plots.
 
 # Libraries ####
+
 library(tidyverse)
 library(broom)
 library(stringr)
 
 # 0. Plot style and colors ####
 
-# FAU approved / inspired colors
 fau_blue <- "#003366"
-fau_red  <- "#CC0000"
+fau_red <- "#CC0000"
 fau_gray <- "#CCCCCC"
 fau_dark_gray <- "#4D4C55"
 
-# Honey bee alarm color ramp:
-# low = pale gray, mid = muted pink/red, high = FAU red
-hb_low  <- "#E8E8E8"
-hb_mid  <- "#E6A3A3"
+hb_low <- "#E8E8E8"
+hb_mid <- "#E6A3A3"
 hb_high <- fau_red
-
 hb_ramp <- c(hb_low, hb_mid, hb_high)
 
 theme_hb <- function(base_size = 15) {
@@ -38,7 +39,7 @@ theme_hb <- function(base_size = 15) {
       panel.grid.major = element_line(color = "grey90", linewidth = 0.35),
       axis.title = element_text(color = "grey15"),
       axis.text = element_text(color = "grey25"),
-      plot.title = element_text(face = "bold", color = "grey10"),
+      plot.title = element_text(face = "plain", color = "grey10"),
       plot.subtitle = element_text(color = "grey25"),
       legend.title = element_text(color = "grey15"),
       legend.text = element_text(color = "grey25")
@@ -55,18 +56,17 @@ clean_metric_label <- function(x) {
 # 1. Read in data ####
 
 relabund <- read.csv("../Output/ApisRelAbund.csv")
-netMets  <- read.csv("../Output/park_level_network_metrics.csv", stringsAsFactors = FALSE)
+netMets <- read.csv("../Output/park_level_network_metrics.csv", stringsAsFactors = FALSE)
 
-# Inspect ####
 names(relabund)
 names(netMets)
 glimpse(relabund)
 glimpse(netMets)
 
-# 2. Define join column ####
+# 2. Define join columns ####
 
 park_col_relabund <- "poly_id"
-park_col_netmets  <- "park_name"
+park_col_netmets <- "park_name"
 
 # 3. Clean park names before join ####
 
@@ -82,12 +82,15 @@ netMets <- netMets %>%
 
 # 4. Check overlap between datasets ####
 
-parks_relabund <- relabund %>% distinct(park_join)
-parks_netmets  <- netMets %>% distinct(park_join)
+parks_relabund <- relabund %>%
+  distinct(park_join)
+
+parks_netmets <- netMets %>%
+  distinct(park_join)
 
 parks_in_both <- inner_join(parks_relabund, parks_netmets, by = "park_join")
 parks_only_relabund <- anti_join(parks_relabund, parks_netmets, by = "park_join")
-parks_only_netmets  <- anti_join(parks_netmets, parks_relabund, by = "park_join")
+parks_only_netmets <- anti_join(parks_netmets, parks_relabund, by = "park_join")
 
 cat("\n--- PARK OVERLAP SUMMARY ---\n")
 cat("Parks in relabund:", nrow(parks_relabund), "\n")
@@ -111,7 +114,7 @@ if (nrow(parks_only_netmets) > 0) {
 dat <- relabund %>%
   inner_join(netMets, by = "park_join", suffix = c("_relabund", "_netmets"))
 
-cat("\nRows in joined dataset:", nrow(dat), "\n")
+cat("\nRows in joined dataset before interaction filter:", nrow(dat), "\n")
 
 # 6. Define honey bee relative abundance column ####
 # IMPORTANT:
@@ -129,7 +132,6 @@ dat <- dat %>%
     hb_raw = hb_percent / 100
   )
 
-# Bound to (0,1) for logit transform
 eps <- 0.001
 
 dat <- dat %>%
@@ -143,8 +145,6 @@ summary(dat$hb_raw)
 summary(dat$hb_logit)
 
 # 7.1 Define sampling effort control ####
-# interaction_sum comes from the network metric file and represents the
-# total number of plant-pollinator interactions used to build each park network.
 
 if (!"interaction_sum" %in% names(dat)) {
   stop("interaction_sum not found in dat. Check names(netMets) for the interaction-count column.")
@@ -158,6 +158,34 @@ dat <- dat %>%
 
 summary(dat$interaction_sum)
 summary(dat$log_interaction_sum)
+
+# 7.2 Filter to networks with at least 10 interactions ####
+
+dat_before_filter <- dat
+
+dat <- dat %>%
+  filter(
+    !is.na(interaction_sum),
+    interaction_sum >= 10
+  )
+
+cat("\n--- INTERACTION FILTER SUMMARY ---\n")
+cat("Rows before filter:", nrow(dat_before_filter), "\n")
+cat("Rows after filter :", nrow(dat), "\n")
+cat("Minimum interaction_sum retained:", min(dat$interaction_sum, na.rm = TRUE), "\n")
+
+cat("\nParks dropped for fewer than 10 interactions:\n")
+print(
+  dat_before_filter %>%
+    filter(is.na(interaction_sum) | interaction_sum < 10) %>%
+    select(park_join, interaction_sum, hb_percent)
+)
+
+write.csv(
+  dat,
+  "../Output/honeybee_network_metric_joined_filtered_ge10_interactions.csv",
+  row.names = FALSE
+)
 
 # 8. Choose network metrics to model ####
 
@@ -177,7 +205,6 @@ cat("\nResponse variables being modeled:\n")
 print(response_vars)
 
 # 9. Unadjusted models: metric ~ honey bee relative abundance ####
-# These are useful as a baseline but do NOT control for sampling effort.
 
 fit_one_model <- function(response, predictor = "hb_raw", data = dat) {
   
@@ -240,8 +267,19 @@ fit_one_model <- function(response, predictor = "hb_raw", data = dat) {
   )
 }
 
-model_results_raw <- map_dfr(response_vars, fit_one_model, predictor = "hb_raw", data = dat)
-model_results_logit <- map_dfr(response_vars, fit_one_model, predictor = "hb_logit", data = dat)
+model_results_raw <- map_dfr(
+  response_vars,
+  fit_one_model,
+  predictor = "hb_raw",
+  data = dat
+)
+
+model_results_logit <- map_dfr(
+  response_vars,
+  fit_one_model,
+  predictor = "hb_logit",
+  data = dat
+)
 
 model_results_raw <- model_results_raw %>%
   mutate(p_adj_fdr = p.adjust(p.value, method = "fdr")) %>%
@@ -270,8 +308,6 @@ write.csv(
 )
 
 # 10. Adjusted models: metric ~ honey bee relative abundance + interaction effort ####
-# Main model:
-#   metric ~ honey bee relative abundance + log(total plant-pollinator interactions observed)
 
 fit_one_adjusted_model <- function(
     response,
@@ -373,7 +409,6 @@ cat("\n--- RESULTS: ADJUSTED LOGIT HONEY BEE RELATIVE ABUNDANCE ---\n")
 print(model_results_adjusted_logit)
 
 # 10.1 Save full adjusted model coefficient tables ####
-# This saves all terms, not just the honey bee term.
 
 full_adjusted_model_coefficients <- map_dfr(response_vars, function(resp) {
   
@@ -425,7 +460,9 @@ write.csv(
 # 11. Quick unadjusted styled plots for each response ####
 
 plot_dir_unadjusted <- "../Output/network_metric_regression_plots"
-if (!dir.exists(plot_dir_unadjusted)) dir.create(plot_dir_unadjusted, recursive = TRUE)
+if (!dir.exists(plot_dir_unadjusted)) {
+  dir.create(plot_dir_unadjusted, recursive = TRUE)
+}
 
 for (resp in response_vars) {
   
@@ -457,10 +494,7 @@ for (resp in response_vars) {
   
   p <- ggplot(
     pdat,
-    aes(
-      x = hb_raw,
-      y = .data[[resp]]
-    )
+    aes(x = hb_raw, y = .data[[resp]])
   ) +
     geom_smooth(
       method = "lm",
@@ -512,7 +546,7 @@ for (resp in response_vars) {
     theme_hb(base_size = 15) +
     theme(
       legend.position = "right",
-      plot.title = element_text(size = 18),
+      plot.title = element_text(size = 18, face = "plain"),
       plot.subtitle = element_text(size = 14),
       axis.title = element_text(size = 16),
       axis.text = element_text(size = 13),
@@ -534,12 +568,11 @@ for (resp in response_vars) {
 }
 
 # 12. Adjusted plots for each response ####
-# These are not simple geom_smooth plots.
-# They show the predicted relationship between honey bee relative abundance
-# and the network metric while holding sampling effort at its median value.
 
 plot_dir_adjusted <- "../Output/network_metric_regression_plots_adjusted"
-if (!dir.exists(plot_dir_adjusted)) dir.create(plot_dir_adjusted, recursive = TRUE)
+if (!dir.exists(plot_dir_adjusted)) {
+  dir.create(plot_dir_adjusted, recursive = TRUE)
+}
 
 for (resp in response_vars) {
   
@@ -593,10 +626,7 @@ for (resp in response_vars) {
   
   p <- ggplot(
     pdat,
-    aes(
-      x = hb_raw,
-      y = .data[[resp]]
-    )
+    aes(x = hb_raw, y = .data[[resp]])
   ) +
     geom_ribbon(
       data = pred_dat,
@@ -661,7 +691,7 @@ for (resp in response_vars) {
     theme_hb(base_size = 15) +
     theme(
       legend.position = "right",
-      plot.title = element_text(size = 18),
+      plot.title = element_text(size = 18, face = "plain"),
       plot.subtitle = element_text(size = 14),
       axis.title = element_text(size = 16),
       axis.text = element_text(size = 13),
@@ -704,13 +734,6 @@ if ("nestedness" %in% names(dat)) {
   
   nested_r2 <- nested_glance$r.squared
   
-  annotation_text <- paste0(
-    "Adjusted model",
-    "\nR\u00B2 = ", round(nested_r2, 2),
-    "\nP_honey bee = ", signif(nested_p, 2),
-    "\nN = ", nrow(nested_dat), " parks"
-  )
-  
   nested_pred <- tibble(
     hb_raw = seq(
       min(nested_dat$hb_raw, na.rm = TRUE),
@@ -731,10 +754,7 @@ if ("nestedness" %in% names(dat)) {
   
   nestedness_plot <- ggplot(
     nested_dat,
-    aes(
-      x = hb_raw,
-      y = nestedness
-    )
+    aes(x = hb_raw, y = nestedness)
   ) +
     geom_ribbon(
       data = nested_pred,
@@ -755,7 +775,7 @@ if ("nestedness" %in% names(dat)) {
       ),
       inherit.aes = FALSE,
       color = fau_red,
-      linewidth = 1.2
+      linewidth = 1.1
     ) +
     geom_point(
       aes(
@@ -764,47 +784,44 @@ if ("nestedness" %in% names(dat)) {
       ),
       shape = 21,
       color = fau_dark_gray,
-      stroke = 0.9,
-      alpha = 0.9
-    ) +
-    annotate(
-      "text",
-      x = Inf,
-      y = Inf,
-      label = annotation_text,
-      hjust = 1.08,
-      vjust = 1.25,
-      size = 4.8,
-      color = "grey20"
+      stroke = 0.6,
+      alpha = 0.85
     ) +
     scale_x_continuous(
       labels = scales::percent_format(accuracy = 1),
-      expand = expansion(mult = c(0.03, 0.07))
+      limits = c(0.2, 1),
+      breaks = seq(0.25, 1, 0.25),
+      expand = expansion(mult = c(0.02, 0.02))
     ) +
     scale_fill_gradientn(
       colors = hb_ramp,
       limits = c(0, 100),
-      name = "% honey bee"
+      guide = "none"
     ) +
     scale_size_continuous(
-      range = c(3, 8),
-      name = "Plant-pollinator\ninteractions"
+      range = c(2.5, 7),
+      guide = "none"
     ) +
     labs(
+      title = "Nestedness",
+      subtitle = paste0(
+        "Honey bee effect: P = ",
+        signif(nested_p, 2),
+        "; N = ",
+        nrow(nested_dat),
+        " parks"
+      ),
       x = expression(italic("Apis mellifera") ~ "relative abundance"),
-      y = "Nestedness",
-      title = "Nestedness vs. honey bee relative abundance",
-      subtitle = "Regression controls for total plant-pollinator interactions observed"
+      y = "Nestedness"
     ) +
-    theme_hb(base_size = 17) +
+    theme_hb(base_size = 13) +
     theme(
-      legend.position = "right",
-      plot.title = element_text(size = 22),
-      plot.subtitle = element_text(size = 16),
-      axis.title = element_text(size = 18),
-      axis.text = element_text(size = 15),
-      legend.title = element_text(size = 13),
-      legend.text = element_text(size = 12)
+      legend.position = "none",
+      plot.title = element_text(size = 24, face = "plain"),
+      plot.subtitle = element_text(size = 20),
+      axis.title = element_text(size = 20),
+      axis.text = element_text(size = 20),
+      panel.grid.minor = element_blank()
     )
   
   nestedness_plot
@@ -812,8 +829,8 @@ if ("nestedness" %in% names(dat)) {
   ggsave(
     "../Output/nestedness_vs_honeybee_relative_abundance_adjusted_poster.png",
     nestedness_plot,
-    width = 8,
-    height = 5.5,
+    width = 7.5,
+    height = 6,
     units = "in",
     dpi = 300,
     bg = "white"
@@ -821,7 +838,6 @@ if ("nestedness" %in% names(dat)) {
 }
 
 # 14. Correlation matrix ####
-# Use numeric columns only; include honey bee abundance, effort, and network metrics.
 
 corr_vars <- c("hb_raw", "hb_percent", "interaction_sum", "log_interaction_sum", response_vars)
 corr_vars <- corr_vars[corr_vars %in% names(dat)]
@@ -876,7 +892,7 @@ corr_plot <- ggplot(corr_long, aes(x = var1, y = var2, fill = correlation)) +
   theme(
     axis.text.x = element_text(angle = 45, hjust = 1),
     panel.grid = element_blank(),
-    plot.title = element_text(size = 18)
+    plot.title = element_text(size = 18, face = "plain")
   ) +
   labs(
     title = "Correlation matrix: honey bee abundance, effort, and network metrics",
@@ -896,8 +912,7 @@ ggsave(
   bg = "white"
 )
 
-# 16. Optional: simple model comparison table ####
-# This puts unadjusted and adjusted honey bee effects side-by-side.
+# 16. Model comparison table ####
 
 model_comparison <- model_results_raw %>%
   select(

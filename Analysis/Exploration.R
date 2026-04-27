@@ -182,14 +182,11 @@ explore_Plot1 <- ggplot(
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
     axis.title.y = element_blank(),
-    axis.text.y = element_text(size = 16),
+    axis.text.y = element_text(size = 20),
     axis.text.x = element_text(size = 15),
-    axis.title.x = element_text(size = 18),
-    legend.position = "none",
-    legend.title = element_text(size = 17),
-    legend.text = element_text(size = 15),
-    plot.title = element_text(face = "bold", size = 22),
-    plot.subtitle = element_text(size = 17),
+    axis.title.x = element_text(size = 20),
+    plot.title = element_text(face = "plain", size = 24),
+    plot.subtitle = element_text(size = 20),
     plot.margin = margin(10, 35, 10, 10)
   ) +
   labs(

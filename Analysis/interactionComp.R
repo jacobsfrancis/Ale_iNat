@@ -124,8 +124,7 @@ interactions_clean <- interactions %>%
 # Quick check of interaction IDs
 interactions_clean %>%
   distinct(interaction_id) %>%
-  arrange(interaction_id) %>%
-  print(n = 30)
+  arrange(interaction_id)
 
 # 4. Build park x interaction matrix ####
 # Each column is a plant-pollinator interaction.
@@ -434,9 +433,15 @@ write.csv(
   row.names = FALSE
 )
 
-# 13. Plot NMDS with envfit vectors ####
-
-stress_label <- paste0("NMDS stress = ", round(nmds$stress, 3))
+# 13. Make Poster Plot #####
+envfit_vectors <- envfit_vectors %>%
+  mutate(
+    arrow_color = case_when(
+      label == "% honey bee" ~ fau_red,
+      label == "Sampling effort" ~ fau_dark_gray,
+      TRUE ~ fau_dark_gray
+    )
+  )
 
 nmds_plot <- ggplot(
   nmds_scores,
@@ -459,8 +464,8 @@ nmds_plot <- ggplot(
     ),
     shape = 21,
     color = fau_dark_gray,
-    stroke = 0.8,
-    alpha = 0.9
+    stroke = 0.6,
+    alpha = 0.85
   ) +
   geom_segment(
     data = envfit_vectors,
@@ -468,57 +473,68 @@ nmds_plot <- ggplot(
       x = 0,
       y = 0,
       xend = NMDS1_end,
-      yend = NMDS2_end
+      yend = NMDS2_end,
+      color = label
     ),
     inherit.aes = FALSE,
-    arrow = arrow(length = unit(0.22, "cm")),
-    color = fau_dark_gray,
-    linewidth = 0.9
+    arrow = arrow(length = unit(0.18, "cm")),
+    linewidth = 0.8
   ) +
   geom_text(
     data = envfit_vectors,
     aes(
       x = label_x,
       y = label_y,
-      label = label
+      label = label,
+      color = label
     ),
     inherit.aes = FALSE,
-    color = fau_dark_gray,
     fontface = "bold",
-    size = 5
+    size = 4
+  ) +
+  scale_color_manual(
+    values = c(
+      "% honey bee" = fau_red,
+      "Sampling effort" = fau_dark_gray
+    ),
+    guide = "none"
   ) +
   scale_fill_gradientn(
     colors = hb_ramp,
     limits = c(0, 100),
-    name = "% honey bee"
+    guide = "none"
   ) +
   scale_size_continuous(
-    range = c(3, 9),
-    name = "Plant-pollinator\ninteractions"
+    range = c(2.5, 7),
+    guide = "none"
   ) +
-  coord_equal() +
   labs(
-    title = "Plant-pollinator interaction composition across parks",
-    subtitle = paste0(stress_label, "; parks with \u226510 unique links"),
+    title = "Interaction composition",
+    subtitle = paste0(
+      "PERMANOVA: honey bee P = 0.051; stress = ",
+      round(nmds$stress, 2)
+    ),
     x = "NMDS1",
     y = "NMDS2"
   ) +
-  theme_hb(base_size = 17) +
+  theme_hb(base_size = 20) +
   theme(
     legend.position = "none",
-    plot.title = element_text(size = 22),
-    plot.subtitle = element_text(size = 16),
-    axis.title = element_text(size = 18),
-    axis.text = element_text(size = 15)
+    plot.title = element_text(size = 24, face = "plain"),
+    plot.subtitle = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    axis.text = element_text(size = 20),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 25, 10, 10)
   )
 
 nmds_plot
 
 ggsave(
-  "../Output/interaction_composition_nmds.png",
+  "../Output/interaction_composition_nmds_poster_small.png",
   nmds_plot,
-  width = 8,
-  height = 5.5,
+  width = 7.5,
+  height = 6,
   units = "in",
   dpi = 300,
   bg = "white"
