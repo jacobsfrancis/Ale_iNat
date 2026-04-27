@@ -821,7 +821,8 @@ if ("nestedness" %in% names(dat)) {
       plot.subtitle = element_text(size = 20),
       axis.title = element_text(size = 20),
       axis.text = element_text(size = 20),
-      panel.grid.minor = element_blank()
+      panel.grid.minor = element_blank(),
+      plot.margin = margin(10, 25, 10, 10)
     )
   
   nestedness_plot
