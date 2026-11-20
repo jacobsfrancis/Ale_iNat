@@ -10,6 +10,12 @@
 #   Build a park x interaction matrix.
 #   Test composition using Bray-Curtis dissimilarity and PERMANOVA.
 #
+# This script runs two versions:
+#   1. Weighted/count composition:
+#        cells = number of observations of each plant x pollinator interaction
+#   2. Binary/presence-absence composition:
+#        cells = 1 if interaction was observed in a park, 0 otherwise
+#
 # Filter:
 #   Only parks with at least 10 unique plant-pollinator links are included.
 #
@@ -20,14 +26,21 @@
 #
 # Outputs:
 #   ../Output/interaction_composition_matrix.csv
-#   ../Output/interaction_composition_matrix_filtered_ge10_links.csv
+#   ../Output/interaction_composition_matrix_filtered_ge10_links_weighted.csv
+#   ../Output/interaction_composition_matrix_filtered_ge10_links_binary.csv
 #   ../Output/interaction_composition_metadata_filtered_ge10_links.csv
-#   ../Output/interaction_composition_permanova.csv
-#   ../Output/interaction_composition_dispersion_test.txt
-#   ../Output/interaction_composition_envfit.txt
-#   ../Output/interaction_composition_envfit_vectors.csv
-#   ../Output/interaction_composition_nmds.png
-#   ../Output/interaction_composition_links_correlated_with_honeybee.csv
+#   ../Output/interaction_composition_permanova_weighted.csv
+#   ../Output/interaction_composition_permanova_binary.csv
+#   ../Output/interaction_composition_dispersion_test_weighted.txt
+#   ../Output/interaction_composition_dispersion_test_binary.txt
+#   ../Output/interaction_composition_envfit_weighted.txt
+#   ../Output/interaction_composition_envfit_binary.txt
+#   ../Output/interaction_composition_envfit_vectors_weighted.csv
+#   ../Output/interaction_composition_envfit_vectors_binary.csv
+#   ../Output/interaction_composition_nmds_weighted_poster.png
+#   ../Output/interaction_composition_nmds_binary_poster.png
+#   ../Output/interaction_composition_links_correlated_with_honeybee_weighted.csv
+#   ../Output/interaction_composition_links_correlated_with_honeybee_binary.csv
 
 # 0. Packages ####
 
@@ -291,10 +304,23 @@ interaction_matrix_complete <- interaction_matrix_complete[
 
 cat("Interactions after dropping absent columns:", ncol(interaction_matrix_complete), "\n")
 
+# Weighted/count matrix
+interaction_matrix_weighted <- interaction_matrix_complete
+
+# Binary/presence-absence matrix
+interaction_matrix_binary <- (interaction_matrix_complete > 0) * 1
+
 write.csv(
-  as.data.frame(interaction_matrix_complete) %>%
+  as.data.frame(interaction_matrix_weighted) %>%
     rownames_to_column("park_join"),
-  "../Output/interaction_composition_matrix_filtered_ge10_links.csv",
+  "../Output/interaction_composition_matrix_filtered_ge10_links_weighted.csv",
+  row.names = FALSE
+)
+
+write.csv(
+  as.data.frame(interaction_matrix_binary) %>%
+    rownames_to_column("park_join"),
+  "../Output/interaction_composition_matrix_filtered_ge10_links_binary.csv",
   row.names = FALSE
 )
 
@@ -304,284 +330,349 @@ write.csv(
   row.names = FALSE
 )
 
-# 9. PERMANOVA: interaction composition ~ honey bee abundance + effort ####
+# 9. Helper function to run composition analysis ####
 
-set.seed(123)
-
-permanova_interactions <- vegan::adonis2(
-  interaction_matrix_complete ~ hb_raw + log_interaction_sum,
-  data = meta_complete,
-  method = "bray",
-  permutations = 999,
-  by = "margin"
-)
-
-permanova_results <- as.data.frame(permanova_interactions) %>%
-  rownames_to_column("term")
-
-cat("\n--- PERMANOVA: INTERACTION COMPOSITION ---\n")
-print(permanova_results)
-
-write.csv(
-  permanova_results,
-  "../Output/interaction_composition_permanova.csv",
-  row.names = FALSE
-)
-
-# 10. Check dispersion ####
-# PERMANOVA can be sensitive to differences in within-group dispersion.
-# hb_raw is continuous, so for a rough diagnostic we bin parks into low/high
-# honey bee groups and test whether dispersion differs.
-
-meta_complete <- meta_complete %>%
-  mutate(
-    hb_group = if_else(
-      hb_raw >= median(hb_raw, na.rm = TRUE),
-      "High honey bee",
-      "Low honey bee"
-    ),
-    hb_group = factor(
-      hb_group,
-      levels = c("Low honey bee", "High honey bee")
-    )
+run_interaction_composition_analysis <- function(
+    matrix_input,
+    meta_input,
+    analysis_label = "weighted",
+    matrix_type_label = "Weighted interaction composition"
+) {
+  
+  cat("\n========================================\n")
+  cat("RUNNING ANALYSIS:", analysis_label, "\n")
+  cat("========================================\n")
+  
+  # 9.1 PERMANOVA ####
+  
+  set.seed(123)
+  
+  permanova_interactions <- vegan::adonis2(
+    matrix_input ~ hb_raw + log_interaction_sum,
+    data = meta_input,
+    method = "bray",
+    permutations = 999,
+    by = "margin"
   )
-
-bray_dist <- vegdist(interaction_matrix_complete, method = "bray")
-
-disp <- betadisper(bray_dist, meta_complete$hb_group)
-disp_test <- permutest(disp, permutations = 999)
-
-cat("\n--- DISPERSION TEST: LOW VS HIGH HONEY BEE GROUPS ---\n")
-print(disp_test)
-
-capture.output(
-  disp_test,
-  file = "../Output/interaction_composition_dispersion_test.txt"
-)
-
-# 11. NMDS ordination ####
-
-set.seed(123)
-
-nmds <- metaMDS(
-  interaction_matrix_complete,
-  distance = "bray",
-  k = 2,
-  trymax = 100,
-  autotransform = FALSE,
-  trace = FALSE
-)
-
-cat("\n--- NMDS STRESS ---\n")
-print(nmds$stress)
-
-nmds_scores <- as.data.frame(scores(nmds, display = "sites")) %>%
-  rownames_to_column("park_join") %>%
-  left_join(meta_complete, by = "park_join")
-
-# 12. Fit environmental vectors ####
-# envfit tests whether honey bee relative abundance and sampling effort
-# align with the NMDS ordination.
-
-envfit_hb <- envfit(
-  nmds,
-  meta_complete %>%
-    select(hb_raw, log_interaction_sum),
-  permutations = 999
-)
-
-cat("\n--- ENVFIT: HONEY BEE ABUNDANCE AND EFFORT ---\n")
-print(envfit_hb)
-
-capture.output(
-  envfit_hb,
-  file = "../Output/interaction_composition_envfit.txt"
-)
-
-# Extract envfit vector scores for plotting
-envfit_vectors <- as.data.frame(scores(envfit_hb, display = "vectors")) %>%
-  rownames_to_column("variable") %>%
-  mutate(
-    r2 = envfit_hb$vectors$r,
-    p.value = envfit_hb$vectors$pvals,
-    label = case_when(
-      variable == "hb_raw" ~ "% honey bee",
-      variable == "log_interaction_sum" ~ "Sampling effort",
-      TRUE ~ variable
-    )
+  
+  permanova_results <- as.data.frame(permanova_interactions) %>%
+    rownames_to_column("term")
+  
+  cat("\n--- PERMANOVA:", analysis_label, "---\n")
+  print(permanova_results)
+  
+  write.csv(
+    permanova_results,
+    paste0("../Output/interaction_composition_permanova_", analysis_label, ".csv"),
+    row.names = FALSE
   )
-
-# Scale arrows to fit inside the ordination plot
-arrow_scale <- 0.75 * min(
-  diff(range(nmds_scores$NMDS1, na.rm = TRUE)),
-  diff(range(nmds_scores$NMDS2, na.rm = TRUE))
-)
-
-envfit_vectors <- envfit_vectors %>%
-  mutate(
-    NMDS1_end = NMDS1 * arrow_scale,
-    NMDS2_end = NMDS2 * arrow_scale,
-    label_x = NMDS1_end * 1.12,
-    label_y = NMDS2_end * 1.12
-  )
-
-print(envfit_vectors)
-
-write.csv(
-  envfit_vectors,
-  "../Output/interaction_composition_envfit_vectors.csv",
-  row.names = FALSE
-)
-
-# 13. Make Poster Plot #####
-envfit_vectors <- envfit_vectors %>%
-  mutate(
-    arrow_color = case_when(
-      label == "% honey bee" ~ fau_red,
-      label == "Sampling effort" ~ fau_dark_gray,
-      TRUE ~ fau_dark_gray
-    )
-  )
-
-nmds_plot <- ggplot(
-  nmds_scores,
-  aes(x = NMDS1, y = NMDS2)
-) +
-  geom_hline(
-    yintercept = 0,
-    color = "grey90",
-    linewidth = 0.35
-  ) +
-  geom_vline(
-    xintercept = 0,
-    color = "grey90",
-    linewidth = 0.35
-  ) +
-  geom_point(
-    aes(
-      fill = hb_percent,
-      size = interaction_sum
-    ),
-    shape = 21,
-    color = fau_dark_gray,
-    stroke = 0.6,
-    alpha = 0.85
-  ) +
-  geom_segment(
-    data = envfit_vectors,
-    aes(
-      x = 0,
-      y = 0,
-      xend = NMDS1_end,
-      yend = NMDS2_end,
-      color = label
-    ),
-    inherit.aes = FALSE,
-    arrow = arrow(length = unit(0.18, "cm")),
-    linewidth = 0.8
-  ) +
-  geom_text(
-    data = envfit_vectors,
-    aes(
-      x = label_x,
-      y = label_y,
-      label = label,
-      color = label
-    ),
-    inherit.aes = FALSE,
-    fontface = "bold",
-    size = 4
-  ) +
-  scale_color_manual(
-    values = c(
-      "% honey bee" = fau_red,
-      "Sampling effort" = fau_dark_gray
-    ),
-    guide = "none"
-  ) +
-  scale_fill_gradientn(
-    colors = hb_ramp,
-    limits = c(0, 100),
-    guide = "none"
-  ) +
-  scale_size_continuous(
-    range = c(2.5, 7),
-    guide = "none"
-  ) +
-  labs(
-    title = "Interaction composition",
-    subtitle = paste0(
-      "PERMANOVA: honey bee P = 0.051; stress = ",
-      round(nmds$stress, 2)
-    ),
-    x = "NMDS1",
-    y = "NMDS2"
-  ) +
-  theme_hb(base_size = 20) +
-  theme(
-    legend.position = "none",
-    plot.title = element_text(size = 24, face = "plain"),
-    plot.subtitle = element_text(size = 20),
-    axis.title = element_text(size = 20),
-    axis.text = element_text(size = 20),
-    panel.grid.minor = element_blank(),
-    plot.margin = margin(10, 25, 10, 10)
-  )
-
-nmds_plot
-
-ggsave(
-  "../Output/interaction_composition_nmds_poster_small.png",
-  nmds_plot,
-  width = 7.5,
-  height = 6,
-  units = "in",
-  dpi = 300,
-  bg = "white"
-)
-
-# 14. Optional: identify interactions associated with high honey bee parks ####
-# This is exploratory: correlate each interaction column with honey bee relative abundance.
-# Useful for identifying which links are most associated with high-HB parks.
-
-interaction_correlations <- map_dfr(
-  colnames(interaction_matrix_complete),
-  function(interaction_id) {
-    x <- interaction_matrix_complete[, interaction_id]
-    
-    if (sd(x, na.rm = TRUE) == 0) {
-      return(tibble())
-    }
-    
-    ct <- suppressWarnings(
-      cor.test(x, meta_complete$hb_raw, method = "spearman")
-    )
-    
-    tibble(
-      interaction_id = interaction_id,
-      rho = unname(ct$estimate),
-      p.value = ct$p.value,
-      total_count = sum(x),
-      n_parks_present = sum(x > 0)
-    )
+  
+  # Extract honey bee PERMANOVA P-value if available
+  hb_p <- permanova_results %>%
+    filter(term == "hb_raw") %>%
+    pull(`Pr(>F)`)
+  
+  if (length(hb_p) == 0) {
+    hb_p <- NA_real_
   }
-) %>%
-  separate(
-    interaction_id,
-    into = c("plant_taxon", "pollinator_taxon"),
-    sep = " __ ",
-    remove = FALSE
+  
+  # 9.2 Dispersion check ####
+  
+  meta_for_disp <- meta_input %>%
+    mutate(
+      hb_group = if_else(
+        hb_raw >= median(hb_raw, na.rm = TRUE),
+        "High honey bee",
+        "Low honey bee"
+      ),
+      hb_group = factor(
+        hb_group,
+        levels = c("Low honey bee", "High honey bee")
+      )
+    )
+  
+  bray_dist <- vegdist(matrix_input, method = "bray")
+  
+  disp <- betadisper(bray_dist, meta_for_disp$hb_group)
+  disp_test <- permutest(disp, permutations = 999)
+  
+  cat("\n--- DISPERSION TEST:", analysis_label, "---\n")
+  print(disp_test)
+  
+  capture.output(
+    disp_test,
+    file = paste0("../Output/interaction_composition_dispersion_test_", analysis_label, ".txt")
+  )
+  
+  # 9.3 NMDS ordination ####
+  
+  set.seed(123)
+  
+  nmds <- metaMDS(
+    matrix_input,
+    distance = "bray",
+    k = 2,
+    trymax = 100,
+    autotransform = FALSE,
+    trace = FALSE
+  )
+  
+  cat("\n--- NMDS STRESS:", analysis_label, "---\n")
+  print(nmds$stress)
+  
+  nmds_scores <- as.data.frame(scores(nmds, display = "sites")) %>%
+    rownames_to_column("park_join") %>%
+    left_join(meta_for_disp, by = "park_join")
+  
+  # 9.4 Envfit vectors ####
+  
+  envfit_hb <- envfit(
+    nmds,
+    meta_for_disp %>%
+      select(hb_raw, log_interaction_sum),
+    permutations = 999
+  )
+  
+  cat("\n--- ENVFIT:", analysis_label, "---\n")
+  print(envfit_hb)
+  
+  capture.output(
+    envfit_hb,
+    file = paste0("../Output/interaction_composition_envfit_", analysis_label, ".txt")
+  )
+  
+  envfit_vectors <- as.data.frame(scores(envfit_hb, display = "vectors")) %>%
+    rownames_to_column("variable") %>%
+    mutate(
+      r2 = envfit_hb$vectors$r,
+      p.value = envfit_hb$vectors$pvals,
+      label = case_when(
+        variable == "hb_raw" ~ "% honey bee",
+        variable == "log_interaction_sum" ~ "Sampling effort",
+        TRUE ~ variable
+      )
+    )
+  
+  arrow_scale <- 0.75 * min(
+    diff(range(nmds_scores$NMDS1, na.rm = TRUE)),
+    diff(range(nmds_scores$NMDS2, na.rm = TRUE))
+  )
+  
+  envfit_vectors <- envfit_vectors %>%
+    mutate(
+      NMDS1_end = NMDS1 * arrow_scale,
+      NMDS2_end = NMDS2 * arrow_scale,
+      label_x = NMDS1_end * 1.12,
+      label_y = NMDS2_end * 1.12,
+      arrow_color = case_when(
+        label == "% honey bee" ~ fau_red,
+        label == "Sampling effort" ~ fau_dark_gray,
+        TRUE ~ fau_dark_gray
+      )
+    )
+  
+  print(envfit_vectors)
+  
+  write.csv(
+    envfit_vectors,
+    paste0("../Output/interaction_composition_envfit_vectors_", analysis_label, ".csv"),
+    row.names = FALSE
+  )
+  
+  # 9.5 Poster NMDS plot ####
+  
+  nmds_plot <- ggplot(
+    nmds_scores,
+    aes(x = NMDS1, y = NMDS2)
+  ) +
+    geom_hline(
+      yintercept = 0,
+      color = "grey90",
+      linewidth = 0.35
+    ) +
+    geom_vline(
+      xintercept = 0,
+      color = "grey90",
+      linewidth = 0.35
+    ) +
+    geom_point(
+      aes(
+        fill = hb_percent,
+        size = interaction_sum
+      ),
+      shape = 21,
+      color = fau_dark_gray,
+      stroke = 0.6,
+      alpha = 0.85
+    ) +
+    geom_segment(
+      data = envfit_vectors,
+      aes(
+        x = 0,
+        y = 0,
+        xend = NMDS1_end,
+        yend = NMDS2_end,
+        color = label
+      ),
+      inherit.aes = FALSE,
+      arrow = arrow(length = unit(0.18, "cm")),
+      linewidth = 0.8
+    ) +
+    geom_text(
+      data = envfit_vectors,
+      aes(
+        x = label_x,
+        y = label_y,
+        label = label,
+        color = label
+      ),
+      inherit.aes = FALSE,
+      fontface = "bold",
+      size = 4
+    ) +
+    scale_color_manual(
+      values = c(
+        "% honey bee" = fau_red,
+        "Sampling effort" = fau_dark_gray
+      ),
+      guide = "none"
+    ) +
+    scale_fill_gradientn(
+      colors = hb_ramp,
+      limits = c(0, 100),
+      guide = "none"
+    ) +
+    scale_size_continuous(
+      range = c(2.5, 7),
+      guide = "none"
+    ) +
+    labs(
+      title = "Interaction composition",
+      subtitle = paste0(
+        matrix_type_label,
+        "; honey bee P = ",
+        signif(hb_p, 2),
+        "; stress = ",
+        round(nmds$stress, 2)
+      ),
+      x = "NMDS1",
+      y = "NMDS2"
+    ) +
+    theme_hb(base_size = 20) +
+    theme(
+      legend.position = "none",
+      plot.title = element_text(size = 24, face = "plain"),
+      plot.subtitle = element_text(size = 20),
+      axis.title = element_text(size = 20),
+      axis.text = element_text(size = 20),
+      panel.grid.minor = element_blank(),
+      plot.margin = margin(10, 25, 10, 10)
+    )
+  
+  print(nmds_plot)
+  
+  ggsave(
+    paste0("../Output/interaction_composition_nmds_", analysis_label, "_poster.png"),
+    nmds_plot,
+    width = 7.5,
+    height = 6,
+    units = "in",
+    dpi = 300,
+    bg = "white"
+  )
+  
+  # 9.6 Exploratory interaction-level correlations ####
+  
+  interaction_correlations <- map_dfr(
+    colnames(matrix_input),
+    function(interaction_id) {
+      x <- matrix_input[, interaction_id]
+      
+      if (sd(x, na.rm = TRUE) == 0) {
+        return(tibble())
+      }
+      
+      ct <- suppressWarnings(
+        cor.test(x, meta_for_disp$hb_raw, method = "spearman")
+      )
+      
+      tibble(
+        interaction_id = interaction_id,
+        rho = unname(ct$estimate),
+        p.value = ct$p.value,
+        total_count_or_presence = sum(x),
+        n_parks_present = sum(x > 0)
+      )
+    }
   ) %>%
-  mutate(
-    p_adj_fdr = p.adjust(p.value, method = "fdr")
-  ) %>%
-  arrange(p.value)
+    separate(
+      interaction_id,
+      into = c("plant_taxon", "pollinator_taxon"),
+      sep = " __ ",
+      remove = FALSE
+    ) %>%
+    mutate(
+      p_adj_fdr = p.adjust(p.value, method = "fdr")
+    ) %>%
+    arrange(p.value)
+  
+  write.csv(
+    interaction_correlations,
+    paste0("../Output/interaction_composition_links_correlated_with_honeybee_", analysis_label, ".csv"),
+    row.names = FALSE
+  )
+  
+  cat("\n--- TOP INTERACTIONS ASSOCIATED WITH HONEY BEE RELATIVE ABUNDANCE:", analysis_label, "---\n")
+  print(interaction_correlations %>% slice_head(n = 20))
+  
+  # Return objects in case you want to inspect them interactively
+  return(
+    list(
+      permanova = permanova_results,
+      dispersion = disp_test,
+      nmds = nmds,
+      nmds_scores = nmds_scores,
+      envfit = envfit_hb,
+      envfit_vectors = envfit_vectors,
+      plot = nmds_plot,
+      interaction_correlations = interaction_correlations
+    )
+  )
+}
 
-write.csv(
-  interaction_correlations,
-  "../Output/interaction_composition_links_correlated_with_honeybee.csv",
-  row.names = FALSE
+# 10. Run weighted/count analysis ####
+# This asks whether parks differ in the composition and relative frequency
+# of plant-pollinator interactions.
+
+weighted_results <- run_interaction_composition_analysis(
+  matrix_input = interaction_matrix_weighted,
+  meta_input = meta_complete,
+  analysis_label = "weighted",
+  matrix_type_label = "Weighted/count composition"
 )
 
-cat("\n--- TOP INTERACTIONS ASSOCIATED WITH HONEY BEE RELATIVE ABUNDANCE ---\n")
-print(interaction_correlations %>% slice_head(n = 20))
+# 11. Run binary/presence-absence analysis ####
+# This asks whether parks differ in which interaction links are present,
+# ignoring how frequently each link was observed.
+
+binary_results <- run_interaction_composition_analysis(
+  matrix_input = interaction_matrix_binary,
+  meta_input = meta_complete,
+  analysis_label = "binary",
+  matrix_type_label = "Presence-absence composition"
+)
+
+# 12. Print brief comparison ####
+
+cat("\n========================================\n")
+cat("WEIGHTED VS BINARY SUMMARY\n")
+cat("========================================\n")
+
+cat("\nWeighted PERMANOVA:\n")
+print(weighted_results$permanova)
+
+cat("\nBinary PERMANOVA:\n")
+print(binary_results$permanova)
+
+cat("\nWeighted NMDS stress:", weighted_results$nmds$stress, "\n")
+cat("Binary NMDS stress  :", binary_results$nmds$stress, "\n")
